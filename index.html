@@ -7,22 +7,22 @@
     <title>CF[2024]-2b-paratelefono</title>
 
     <style type="text/css">
- 
- @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
-
+  
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+/* 
 @font-face {font-family: "Saira Expanded";src: url("Saira_Expanded-Bold.ttf");}
 @font-face {font-family: "Saira Expanded SemiBold";src: url("Saira_Expanded-SemiBold.ttf");}
-
+*/
 :root{
    --y: hsl(0, 100%, 50%);--x: #0E2339;--x1: #101a29;--x2: #182436;--x3: #141C29;
    --pr1mary-color: rgb(227, 238, 255);/* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(228, 100%, 30%) */
    --text-color:rgb(130, 130, 130);    /* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(214, 7%, 79%) */
-   --bg-color:hsla(240, 100%, 6%, 1.0);           /* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(0, 0%, 14%) */
+   --bg-color:rgb(14, 14, 14);           /* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(0, 0%, 14%) */
    --html-color: hsla(240, 100%, 6%, 1.0);
-   --bg-card-color: rgb(0, 0, 0);      /* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(0, 0%, 11%) */
+   --bg-card-color: rgb(9, 9, 9);      /* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(0, 0%, 11%) */
    --border-color: rgb(106, 106, 106);
-   --bg-table-color: rgb(0, 7, 39);
-   --bg-table-color2: rgb(1, 16, 82);
+   --bg-table-color: rgb(28, 28, 28);
+   --bg-table-color2: rgb(48, 48, 48);
    --border-radius: 5px;
    --transition: color 0.1s, background-color 0.6s ease-in-out;
    --skill-bar-length:0%;
@@ -363,13 +363,17 @@ z-index: 10;
     justify-content: space-between; 
     padding-top: 5px;
 }
+@media screen and (max-width: 450px){
+    .card_subtitle{flex-direction: column;}
+}
+
 .card_subtitle #simbolo{    
     opacity: 0.75;
 } 
 .card_subtitle .card_arrows1, .card_subtitle .card_subtitle_tex1{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items:center;
+    justify-content:left;
 }
 
 .card_subtitle .arrows{
@@ -520,7 +524,7 @@ z-index: 10;
 .checkboxs div .checkbox{width: 0.8em;height: 0.8em;}
 } 
 
-.buttons {background-color: #3c0145;
+.buttons {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -601,24 +605,44 @@ z-index: 10;
     color: var(--text-color);
     border: 1px solid var(--text-color);
 }
+.main_grid_2 .tabla-css .tdHead{
+    border: 1px solid var(--text-color);
+    padding: 0.25rem  0.525rem ;
+}
 .main_grid_2 .tabla-css td{
     font-size: var(--font-size4);font-family: var(--font-family2); font-weight: var(--font-weight2);
     text-align: center;
-    background-color: var(--bg-card-color);background-color: #1a0144;
     color: var(--text-color);
-    border: 1px solid var(--text-color);
-    padding: 0.25rem ;
     white-space: nowrap; /* white-space: nowrap; suprime saltos de linea del origen*/
 }
 .main_grid_2 .tabla-css .td_cf{
     font-size: var(--font-size4);font-family: var(--font-family2); font-weight: var(--font-weight2);
-    text-align: right;
-    background-color: var(--bg-card-color);background-color: #1a0144;
-    color: var(--text-color);
     border: 1px solid var(--text-color);
-    padding: 0.25rem ;
+    text-align: right;
+    color: var(--text-color);
+    padding: 0.25rem  0.525rem ;
     white-space: nowrap; /* white-space: nowrap; suprime saltos de linea del origen*/
 }
+.main_grid_2 .tabla-css .td_x{
+    border: 1px solid var(--text-color);
+}
+.main_grid_2 .tabla-css .td_x div{
+    display: flex;justify-content: center;
+}
+.main_grid_2 .tabla-css .td_x:hover{
+    cursor: pointer; background-color: #680101;
+}
+.main_grid_2 .tabla-css .td_x svg{/* viewBox='-30 -36 100 100' width='21px' height='16px' */
+    fill: var(--text-color); width: 16px;height: 16px;
+}
+.main_grid_2 .tabla-css .tdFinalT1, .main_grid_2 .tabla-css .tdFinalT2{
+    border-bottom: 1px solid var(--text-color);
+    padding: 0.25rem  0.525rem ;
+}
+.main_grid_2 .tabla-css .tdFinalT1{text-align: left;}
+.main_grid_2 .tabla-css .tdFinalT2{text-align: right;}
+
+
 .tablas{
     display: flex; justify-content: center; flex-direction: column; 
     margin-left: auto; margin-right: auto;  padding: 0 20px;
@@ -634,7 +658,7 @@ z-index: 10;
 
 
 
-.card_2{ font-size: var(--font-size1);height: 500px;padding: 5px; overflow: auto;}  
+.card_2{ font-size: var(--font-size1);height: 440px;padding: 5px; overflow: auto;}  
 /*@media screen and  (max-width: 1100px) {.card_2{width: auto;}}****** ALTURA DE .card_2 ********
 */
 .card_2::-webkit-scrollbar{width: 10px;}
@@ -680,13 +704,13 @@ z-index: 10;
     color: var(--text-color);
     border-top:  1px solid var(--text-color);;
 } 
-.footer .socialmedia_1{background-color: #4b0057;
+.footer .socialmedia_1{
     display: flex;
     justify-content: center;
     padding: 10px;
 
 }
-.footer .socialmedia_1 .socialmedia{background-color: #010f8a;
+.footer .socialmedia_1 .socialmedia{
     width: 50%;
     display: flex;
     justify-content:space-between;
@@ -707,9 +731,9 @@ z-index: 10;
 }
 
 .footer .copyright{width: 100%; text-align: center; padding: 10px 10px;}
-.footer .copyright p{font-size: var(--font-size2);margin: 0;}
+.footer .copyright p{font-size: var(--font-size1);margin: 0;}
 #Copyright{background-color: rgba(0, 0, 0, 0);}
-@media screen and  (max-width: 900px) {.footer .copyright p {font-size: var(--font-size4)}}
+@media screen and  (max-width: 450px) {.footer .copyright p {font-size: var(--font-size4)}}
 .svgInstagram #SVGID_1_ stop{stop-color: var(--text-color);}
 .svgInstagram .st0{fill:url(#SVGID_1_);}
 .svgInstagram .st1{fill:  var(--bg-color);}
@@ -743,7 +767,7 @@ z-index: 10;
                <path fill="" d="M6 22H62V26H6zM6 10H62V14H6zM6 34H62V38H6z"/>
              </svg>
             </div>
-           <div class="title"><p>C&Aacute;LCULOS FINANCIEROS [github.com/Miau19/Miau3]</p></div>
+           <div class="title"><p>C&Aacute;LCULOS FINANCIEROS [github.com/Miau19/Miau3/]</p></div>
         </div>
         <div id="toggle-colors" class="colors">
           <div data-bg="rgb(0, 0, 30)"      data-card="rgb(0, 0, 0)"       data-text="rgb(150, 150, 152)" data-border="rgb(120, 120, 120)" data-menu="rgb(0, 4, 21)" class="colors__item colors__item--blue" ></div>
@@ -794,7 +818,7 @@ z-index: 10;
     <div class="container_flex_2">
       <div class="header2">
         <!-- <div class="TC" id="TC"><p>TRADE CRIPTOMONEDAS</p></div> -->
-        <div  class="title2"><p>C&Aacute;LCULOS FINANCIEROS</p></div>
+        <div  class="title2"><p>C&Aacute;LCULOS FINANCIEROS [github]</p></div>
       </div> 
     
       <article class="main_grid_1">
@@ -1159,29 +1183,46 @@ z-index: 10;
       </article>
   
       <article class="main_grid_2">
-        <div class="tablas">
+        <div class="tablas"> <br>
           <table class="tabla-css">
             <thead>
-                <tr>
-                    <td>Simbolo</td>
-                    <td>Capital inicial	</td>
-                    <td>Compra</td>
-                    <td>Venta</td>
-                    <td>Diferencia</td>
-                    <td>Comision</td>
-                    <td>Ganancia</td>
-                    <td>Capital final</td>
-                </tr>
-                <!--  <tr>
-                  <td>BTCUSDT</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-              </tr> -->
+              <tr >
+                <td class="tdHead">S&iacute;mbolo</td>
+                <td class="tdHead">Capital inicial	</td>
+                <td class="tdHead">Compra</td>
+                <td class="tdHead">Venta</td>
+                <td class="tdHead">Diferencia</td>
+                <td class="tdHead">Comisi&oacute;n</td>
+                <td class="tdHead">Ganancia</td>
+                <td class="tdHead">Capital final</td>
+                <td class="tdHead">Eliminar</td>
+              </tr>
+              <tr id="tr_1">
+                <td id="td_sp1" class="td_cf">BTC/USDT</td>
+                <td id="td_ci1" class="td_cf">1,550.46366</td>
+                <td id="td_pc1" class="td_cf">64,522.00</td>
+                <td id="td_pv1" class="td_cf">70,000.00</td>
+                <td id="td_dp1" class="td_cf">0</td>
+                <td id="td_c1"  class="td_cf">0.10</td>
+                <td id="td_p1"  class="td_cf">0</td>
+                <td id="td_cf1" class="td_cf">0</td>
+                <td class="td_x" onclick="eliminarTr(1)">
+                  <div><svg xmlns='http://www.w3.org/2000/svg'  viewBox='-20 -20 100 100' width='16px' height='16px'><path fill='' d= "M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z"/></svg></div>
+                </td>
+              </tr>
+              <tr id="tr_2">
+                <td id="td_sp2" class="td_cf">BTC/USDT</td>
+                <td id="td_ci2" class="td_cf">617.236</td>
+                <td id="td_pc2" class="td_cf">58,000.00</td>
+                <td id="td_pv2" class="td_cf">70,000.00</td>
+                <td id="td_dp2" class="td_cf">0</td>
+                <td id="td_c2"  class="td_cf">0.10</td>
+                <td id="td_p2"  class="td_cf">0</td>
+                <td id="td_cf2" class="td_cf">0</td>
+                <td class="td_x" onclick="eliminarTr(2)">
+                  <div><svg onclick="eliminarTr(2)" xmlns='http://www.w3.org/2000/svg'  viewBox='-20 -20 100 100' width='16px' height='16px'><path fill='' d= "M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z"/></svg></div>
+                </td>
+              </tr>
             </thead> 
             <tbody id="data"></tbody>
              <!--  <tr>
@@ -1234,28 +1275,40 @@ z-index: 10;
               <td></td>
               <td class='td_cf' id="total">120,000.00</td>
             </tr> -->
+          </table> <br>
 
-        </table> <br>
-        <table class="tabla-css">
-          <tbody id="data"></tbody>
-          <tr >
-            <td style="text-align: left;">Capital inicial total</td>
-            <td style="text-align: right;" id="capitalIniciaTotal"></td>
-
-          </tr>
-          <tr >
-            <td style="text-align: left;">Capital final total</td>
-            <td style="text-align: right;" id="capitalFinalTotal"></td>
-
-          </tr>
-          <tr >
-            <td style="text-align: left;" id="gananciasPerdidas">Ganancias/Perdidas</td>
-            <td style="text-align: right;" id="diferenciaTotal"></td>
-
-          </tr>
-      </table> <br>
-        <!--  
-        <table class="tabla-css">
+          <table class="tabla-css" >
+            <tbody id="data2" style="display: none;">
+              <tr >
+                <td style="text-align: left; border: 1px solid rgb(200,0,0);">Capital inicial total</td>
+                <td style="text-align: right;" id="capitalIniciaTotal2"></td>
+              </tr>
+              <tr >
+                <td style="text-align: left;">Capital final total</td>
+                <td style="text-align: right;" id="capitalFinalTotal2">0</td>
+              </tr>
+              <tr >
+                <td style="text-align: left;" id="gananciasPerdidas2">Ganancias/Perdidas</td>
+                <td style="text-align: right;" id="diferenciaTotal2">0</td>
+              </tr>
+            </tbody>
+            <tbody id="data">
+             <tr >
+               <td class="tdFinalT1">Capital inicial total</td>
+               <td class="tdFinalT2" id="capitalIniciaTotal">0</td>
+             </tr>
+             <tr >
+               <td class="tdFinalT1">Capital final total</td>
+               <td class="tdFinalT2" id="capitalFinalTotal">0</td>
+             </tr>
+             <tr >
+               <td class="tdFinalT1" id="gananciasPerdidas">Gananciasss/Perdidas</td>
+               <td class="tdFinalT2" id="diferenciaTotal">0</td>
+             </tr>
+            </tbody>
+         </table> <br>
+         <!--  
+         <table class="tabla-css">
             <thead>
                 <tr>
                     <td>Simbolo </td>
@@ -1323,9 +1376,9 @@ z-index: 10;
               <td>120,000.00</td>
             </tr> 
 
-        </table>
-        -->
-        </div>
+         </table>
+         -->
+       </div><!--  FIN DE <div class="tablas"></div> -->
         
       </article><!--   FIN DE article class="main_grid_2" -->
       <article class="main_grid_3">
@@ -1624,7 +1677,7 @@ z-index: 10;
 
 var ws='', r="rgb(200,0,0)", v='rgb(0,200,0)', TOGGLE=1, EDITAR=1, ACTUALIZAPRECIO=1
 , simboloPar='',cuentaInicial='', gananciaXBTC='', comision='',gananciaXBTC='', gananciaXFraccion='', cuentaFinal='',pCompra='', pVenta=''
-, contC=0;
+, C=2, contC=0+C;
 var cuentaInicialT='', gananciaXBTCT='', comisionT='',gananciaXBTCT='', gananciaXFraccionT='', cuentaFinalT='',pCompraT='', pVentaT='';
 var  arrayBox=[0,0,0,0,0,0,0,0];
 
@@ -1740,14 +1793,15 @@ function actualizaPreciosCard() { ///ACTUALIZA LAS RESPUESTAS CON EL PRECIO DEL 
 } 
 
 function agregarAtabla(){ 
-  actualizaPreciosCard();//FUNCION NESESARIA PARA INSERTAR VALORES EN TABLA
+  actualizaPreciosCard();//FUNCION NESESARIA PARA INSERTAR VALORES EN TABLA  class='td_cf'
   contC = contC+1;
   console.log('contC',contC);
-  document.getElementById('data').innerHTML +=  "<tr><td id='td_sp"+contC+"'>"+simbolo.textContent.replace(':','')+"</td><td class='td_cf' id='td_ci"+contC+"'>"+formato(cuentaInicial)+"</td><td class='td_cf' id='td_pc"+contC+"'>"+
+  document.getElementById('data').innerHTML +=  "<tr id='tr_"+contC+"'"+" ><td class='td_cf' id='td_sp"+contC+"'>"+simbolo.textContent.replace(':','')+"</td><td class='td_cf' id='td_ci"+contC+"'>"+formato(cuentaInicial)+"</td><td class='td_cf' id='td_pc"+contC+"'>"+
   formato(pCompra)+"</td><td class='td_cf' id='td_pv"+contC+"'>"+formato(pVenta)+"</td><td class='td_cf' id='td_dp"+contC+"'>"+formato(gananciaXBTC)+"</td><td class='td_cf' id='td_c"+contC+"'>"+formato(comision)+"</td><td class='td_cf' id='td_p"+contC+"'>"+
-  formato(gananciaXFraccion)+"</td><td class='td_cf' id='td_cf"+contC+"'>"+formato(cuentaFinal)+"</td></tr>";
-  
-  for (let i = 1; i <= contC; i++) {
+  formato(gananciaXFraccion)+"</td><td class='td_cf' id='td_cf"+contC+"'>"+formato(cuentaFinal)+"</td><td onclick='eliminarTr("+contC+")'"+" class='td_x' id='td_x"+contC+"'"+
+  ">"+"<div><svg onclick='eliminarTr("+contC+")'"+" xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 100 100'><path fill='' d= 'M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z'/></svg></div>"+"</td></tr>";
+
+  for (let i = 1; i <= contC; i++) { onclick= 
   actualizaColor(document.getElementById('td_dp'+contC), pVenta, pCompra);
   actualizaColor(document.getElementById('td_p'+contC), gananciaXFraccion, 0);
   actualizaColor( document.getElementById('td_cf'+contC), cuentaFinal, cuentaInicial);
@@ -1793,7 +1847,7 @@ function suma(){
   for (let i = 1; i < contC+1; i++) {
     //console.log("Valor de i:", i);
     cuentainicial = Number(cleanBoxes(document.getElementById('td_ci'+i).textContent.replace(/[,]/g,"")));;
-    cuentaFinal = Number(cleanBoxes(document.getElementById('td_cf'+i).textContent.replace(/[,]/g,"")));;
+    cuentaFinal = Number(cleanBoxes(document.getElementById('td_cf'+i).textContent.replace(/[,]/g,"")));; 
 
     //console.log("cuentaFinal:", cuentaFinal);
     array_ci.push(cuentainicial);array_cf.push(cuentaFinal);
@@ -1882,6 +1936,11 @@ function article1_columnLeft(){
 } 
 function article2_columnLeft(){
   booleanGT=1; article2();
+}
+
+function eliminarTr(c){
+  document.getElementById('tr_'+c).style.display='none';//document.getElementById('tr_'+c).remove();
+  document.getElementById("td_ci"+c).innerText=0;
 }
 
 ///------------------------------------------------------------------------------------------------------------------------
@@ -2077,3 +2136,4 @@ Su sitio web consta de muchas páginas diferentes. Cada página web consta de va
 </script>
 </body>
 </html>
+  
