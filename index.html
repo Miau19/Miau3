@@ -7,8 +7,8 @@
     <title>CF[2024]-2b-paratelefono</title>
 
     <style type="text/css">
-  
-@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 /* 
 @font-face {font-family: "Saira Expanded";src: url("Saira_Expanded-Bold.ttf");}
 @font-face {font-family: "Saira Expanded SemiBold";src: url("Saira_Expanded-SemiBold.ttf");}
@@ -430,6 +430,8 @@ z-index: 10;
     display: flex;
     justify-content: start;
  } 
+.datos #precioVenta {display: none;}
+
 .datos p , .datos span{ /* TEXT 2 */
     margin-top: 0.4em; margin-bottom: 0.4em; margin-left: 0;margin-right: 0;
     font-size: var(--font-size1);font-family: var(--font-family2);font-weight: var(--font-weight2);
@@ -603,7 +605,6 @@ z-index: 10;
     background-color: var(--bg-card-color);
     border-collapse: collapse;
     color: var(--text-color);
-    border: 1px solid var(--text-color);
 }
 .main_grid_2 .tabla-css .tdHead{
     border: 1px solid var(--text-color);
@@ -636,17 +637,24 @@ z-index: 10;
     fill: var(--text-color); width: 16px;height: 16px;
 }
 .main_grid_2 .tabla-css .tdFinalT1, .main_grid_2 .tabla-css .tdFinalT2{
-    border-bottom: 1px solid var(--text-color);
+    border: 1px solid var(--text-color);
     padding: 0.25rem  0.525rem ;
 }
-.main_grid_2 .tabla-css .tdFinalT1{text-align: left;}
-.main_grid_2 .tabla-css .tdFinalT2{text-align: right;}
-
+.main_grid_2 .tabla-css .tdFinalT1{text-align: left;border-right: none;}
+.main_grid_2 .tabla-css .tdFinalT2{text-align: right;border-left: none;}
+.main_grid_2 .tabla-css .td_separador{height: 1.525rem; border: 1px solid var(--text-color);}
 
 .tablas{
     display: flex; justify-content: center; flex-direction: column; 
     margin-left: auto; margin-right: auto;  padding: 0 20px;
 }
+.td_Dtitulo{border: 1px solid var(--text-color); padding: 0;margin: 0;}
+.div_Dtitulo{width: 100%; display: flex;justify-content: space-between; align-items: center; padding-left: 0.525rem;}
+#div_Dsvg{display: flex;justify-content: center; align-items: center; padding: 0.25rem  0.525rem;margin: 0;}
+#div_Dsvg:hover{cursor: pointer; background-color: #680101;}
+#div_Dsvg svg{fill: var(--text-color); width: 16px;height: 16px;}
+#tabla_2a{display: none;}
+
 .main_grid_3{
     display: none;
     padding: 10px;
@@ -971,58 +979,59 @@ z-index: 10;
                   </div>
                 </div>
       
-                <div class="div_padding" id="div_padding1">
+                <div class="div_padding" id="dp5">
                   <div class="datos" >
                   <div><p>Cuenta Spot Inicial</p><span id="moneda1">(USDT)</span><p>:</p></div>
                   <input id="cuentaSpotI" name="box" class="text" type="text" value="2,309.10" disabled><!-- box[5] -->
                 </div>
                 </div>
-                <div class="div_padding" id="div_padding2">
+                <div class="div_padding" id="dp6">
                   <div class="datos" >
                    <div><p>Precio de compra</p><span id="moneda2">(USDT)</span><p>:</p></div>
                    <input id="precioCompra" name="box" class="text" type="text" value="66,600.00" disabled><!-- box[6] -->
                   </div>
                 </div>
-                <div class="div_padding">
+                <div class="div_padding" id="dp7">
                   <div class="datos" >
-                   <div><p>Diferencia de precios</p><span id="moneda2">(USDT)</span><p>:</p></div>
+                   <div><p>Diferencia de precios</p><span id="moneda2">(USDT)</span><p>:&nbsp;</p></div>
                    <div style="background: rgba(15, 15, 15, 0); display: flex; align-items: center; justify-content: flex-end;">
                     <div id="arrow" >
                       <svg id="svgUP"  style="display: inline;fill: rgb(0,200,0);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  viewBox="0 3 24 20"><path d="M15,20H9V12H4.16L12,4.16L19.84,12H15V20Z" /></svg>
                       <svg id="svgDOWN" style="display: none; fill: rgb(200,0,0);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 1 24 20"><path d="M9,4H15V12H19.84L12,19.84L4.16,12H9V4Z" /></svg>
                    </div>
-                    <input id="Difprecio" name="box" class="text" type="text" value="1,000.00" disabled><!-- box[6] -->
+                    <input id="Difprecio" name="box" class="text" type="text" value="1,000.00" disabled><!-- box[7] -->
                    </div>
                   </div>
                 </div>
-                <div class="div_padding">
+                <div class="div_padding" id="dp8">
                   <div class="datos" >
                    <div><p>Precio de venta</p><span id="moneda2">(USDT)</span><p>:</p></div>
-                   <input id="precioVenta" name="box" class="text" type="text" value="67,600.00" disabled><!-- box[7] -->
+                   <input id="precioVenta" name="box" class="text" type="text" value="67,600.00" disabled>
+                   <input id="precioVentaVivo" name="box" class="text" type="text" value="100" disabled><!-- box[8] -->
                   </div>
                 </div>
-                <div class="div_padding" id="div_padding3">
+                <div class="div_padding" id="dp9">
                   <div class="datos" >
                    <div><p>Comisi&oacute;n</p><span id="moneda3">(%)</span><p>:</p></div>
-                   <input id="commission" name="box" class="text" type="text" value="0.10" disabled><!-- box[8] -->
+                   <input id="commission" name="box" class="text" type="text" value="0.10" disabled><!-- box[9] -->
                   </div>
                 </div> 
-                <div class="div_padding">
+                <div class="div_padding"id="dp10">
                   <div class="datos" >
                    <div><p>Ganancia</p><span id="moneda3">(USDT)</span><p>:</p></div>
-                   <input id="profit" name="box" class="text" type="text" value="122.87" disabled ><!-- box[9] -->
+                   <input id="profit" name="box" class="text" type="text" value="122.87" disabled ><!-- box[10] -->
                   </div>
                 </div>
-                <div class="div_padding">
+                <div class="div_padding"id="dp11">
                   <div class="datos" >
                   <div><p>Cuenta Spot Final</p><span id="moneda4">(USDT)</span><p>:</p></div>
-                   <input id="cuentaSpotF" name="box" class="text" type="text" value="1,122.87" disabled ><!-- box[10] --> 
+                   <input id="cuentaSpotF" name="box" class="text" type="text" value="1,122.87" disabled ><!-- box[11] --> 
                   </div>
                 </div>
       
                 <div class="buttons" >
                   <div type="button" class="button button--primary" id="editando" onclick="editar()" >Iniciar edici&oacute;n</div>
-                   <div type="button" class="button button--primary" id="agregarAT" onclick="agregarAtabla()" >Insertar en tabla</div>
+                   <div type="button" class="button button--primary" id="agregarATabla" onclick="agregarAtabla()" >Insertar en tabla din&aacute;mica</div>
                    <!-- <div type="button" class="button button--primary" id="actualizarPrecioV" onclick="">Actualizar venta</div>
                    <div type="button" class="button button--primary" id="btnAuto" onclick="">Stop auto</div>  -->
                   </div>
@@ -1184,8 +1193,11 @@ z-index: 10;
   
       <article class="main_grid_2">
         <div class="tablas"> <br>
-          <table class="tabla-css">
+          <table class="tabla-css" id="tabla_1a">
             <thead>
+              <tr>
+                <td colspan="9" rowspan="1" class="td_Dtitulo"><div class="div_Dtitulo"><div>TABLA DIN&Aacute;MICA</div> <div id="div_Dsvg" onclick="eliminarTablaD()"><svg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 100 100'><path fill='' d= 'M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z'/></svg></div></div></td>
+              </tr>
               <tr >
                 <td class="tdHead">S&iacute;mbolo</td>
                 <td class="tdHead">Capital inicial	</td>
@@ -1220,165 +1232,99 @@ z-index: 10;
                 <td id="td_p2"  class="td_cf">0</td>
                 <td id="td_cf2" class="td_cf">0</td>
                 <td class="td_x" onclick="eliminarTr(2)">
-                  <div><svg onclick="eliminarTr(2)" xmlns='http://www.w3.org/2000/svg'  viewBox='-20 -20 100 100' width='16px' height='16px'><path fill='' d= "M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z"/></svg></div>
+                  <div><svg xmlns='http://www.w3.org/2000/svg'  viewBox='-20 -20 100 100' width='16px' height='16px'><path fill='' d= "M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z"/></svg></div>
                 </td>
               </tr>
             </thead> 
-            <tbody id="data"></tbody>
-             <!--  <tr>
-               <td>BTC/USDT</td>
-               <td class='td_cf'>3,429.00</td>
-               <td class='td_cf'>48,000.00</td>
-               <td class='td_cf'>4,299.00</td>
-               <td class='td_cf'>52,394.00</td>
-               <td class='td_cf'>0.10</td>
-               <td class='td_cf'>300.00</td>
-               <td class='td_cf'>3,729.00</td>
-             </tr>
-             <tr>
-              <td>BTC/USDT</td>
-              <td>3,429.00</td>
-              <td>48,000.00</td>
-              <td>4,299.00</td>
-              <td>52,394.00</td>
-              <td>0.10</td>
-              <td>300.00</td>
-              <td>3,729.00</td>
-            </tr>
+            <tbody id="dataD"></tbody>
+            <tfoot>
+              <tr>
+                <td colspan="9" rowspan="1" class="td_separador"></td>
+
+              </tr>
+              <tr>
+                <td colspan="6" rowspan="1" class="tdFinalT1">Capital inicial total</td>
+                <td colspan="3" rowspan="1" class="tdFinalT2" id="capitalIniciaTotal">0</td>
+
+
+              </tr>
+              <tr>
+                <td colspan="6" rowspan="1" class="tdFinalT1">Capital final total</td>
+                <td colspan="3" rowspan="1" class="tdFinalT2" id="capitalFinalTotal">0</td>
+              </tr>
+              <tr>
+                <td colspan="6" rowspan="1" class="tdFinalT1" id="gananciasPerdidas">Ganancias/P&eacute;rdidas</td>
+                <td colspan="3" rowspan="1" class="tdFinalT2" id="diferenciaTotal">0</td>
+              </tr>
+            </tfoot>
+          </table> <br>
+         
+         <table class="tabla-css" id="tabla_2a">
+          <thead>
             <tr>
-              <td>BTC/USDT</td>
-              <td>3,429.00</td>
-              <td>48,000.00</td>
-              <td>4,299.00</td>
-              <td>52,394.00</td>
-              <td>0.10</td>
-              <td>300.00</td>
-              <td>3,729.00</td>
-            </tr>
-             <tr>
-              <td>XRP/USDT</td>
-              <td class='td_cf'>4,000.00</td>
-              <td class='td_cf'>0.60</td>
-              <td class='td_cf'>0.61</td>
-              <td class='td_cf'>0.01</td>
-              <td class='td_cf'>0.10</td>
-              <td class='td_cf'>15.00</td>
-              <td class='td_cf'>4,020.50</td>
+              <td colspan="9" rowspan="1" class="td_Dtitulo"><div class="div_Dtitulo"><div>TABLA EST&Aacute;TICA</div> <div id="div_Dsvg" onclick="eliminarTablaE()"><svg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 100 100'><path fill='' d= 'M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z'/></svg></div></div></td>
             </tr>
             <tr >
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class='td_cf' id="total">120,000.00</td>
-            </tr> -->
-          </table> <br>
+              <td class="tdHead">S&iacute;mbolo</td>
+              <td class="tdHead">Capital inicial	</td>
+              <td class="tdHead">Compra</td>
+              <td class="tdHead">Venta</td>
+              <td class="tdHead">Diferencia</td>
+              <td class="tdHead">Comisi&oacute;n</td>
+              <td class="tdHead">Ganancia</td>
+              <td class="tdHead">Capital final</td>
+              <td class="tdHead">Eliminar</td>
+            </tr>
+            <tr id="tr_E1" style="display: none;">
+              <td id="td_spE1" class="td_cf">BTC/USDT</td>
+              <td id="td_ciE1" class="td_cf">0</td>
+              <td id="td_pcE1" class="td_cf">10</td>
+              <td id="td_pvE1" class="td_cf">10</td>
+              <td id="td_dpE1" class="td_cf">0</td>
+              <td id= "td_cE1"  class="td_cf">0</td>
+              <td id= "td_pE1"  class="td_cf">0</td>
+              <td id="td_cfE1" class="td_cf">0</td>
+              <td class="td_x" onclick="eliminarTrE(1)">
+                <div><svg xmlns='http://www.w3.org/2000/svg'  viewBox='-20 -20 100 100' width='16px' height='16px'><path fill='' d= "M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z"/></svg></div>
+              </td>
+            </tr>
+            <tr id="tr_E2" style="display: none;">  
+              <td id="td_spE2" class="td_cf">BTC/USDT</td>
+              <td id="td_ciE2" class="td_cf">0</td>
+              <td id="td_pcE2" class="td_cf">10</td>
+              <td id="td_pvE2" class="td_cf">10</td>
+              <td id="td_dpE2" class="td_cf">0</td>
+              <td id= "td_cE2"  class="td_cf">0</td>
+              <td id= "td_pE2"  class="td_cf">0</td>
+              <td id="td_cfE2" class="td_cf">0</td>
+              <td class="td_x" onclick="eliminarTrE(2)">
+                <div><svg  xmlns='http://www.w3.org/2000/svg'  viewBox='-20 -20 100 100' width='16px' height='16px'><path fill='' d= "M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z"/></svg></div>
+              </td>
+            </tr>
+          </thead> 
+          <tbody id="dataE"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="9" rowspan="1" class="td_separador"></td>
 
-          <table class="tabla-css" >
-            <tbody id="data2" style="display: none;">
-              <tr >
-                <td style="text-align: left; border: 1px solid rgb(200,0,0);">Capital inicial total</td>
-                <td style="text-align: right;" id="capitalIniciaTotal2"></td>
-              </tr>
-              <tr >
-                <td style="text-align: left;">Capital final total</td>
-                <td style="text-align: right;" id="capitalFinalTotal2">0</td>
-              </tr>
-              <tr >
-                <td style="text-align: left;" id="gananciasPerdidas2">Ganancias/Perdidas</td>
-                <td style="text-align: right;" id="diferenciaTotal2">0</td>
-              </tr>
-            </tbody>
-            <tbody id="data">
-             <tr >
-               <td class="tdFinalT1">Capital inicial total</td>
-               <td class="tdFinalT2" id="capitalIniciaTotal">0</td>
-             </tr>
-             <tr >
-               <td class="tdFinalT1">Capital final total</td>
-               <td class="tdFinalT2" id="capitalFinalTotal">0</td>
-             </tr>
-             <tr >
-               <td class="tdFinalT1" id="gananciasPerdidas">Gananciasss/Perdidas</td>
-               <td class="tdFinalT2" id="diferenciaTotal">0</td>
-             </tr>
-            </tbody>
+            </tr>
+            <tr>
+              <td colspan="6" rowspan="1" class="tdFinalT1">Capital inicial total</td>
+              <td colspan="3" rowspan="1" class="tdFinalT2" id="capitalIniciaTotalE">0</td>
+
+
+            </tr>
+            <tr>
+              <td colspan="6" rowspan="1" class="tdFinalT1">Capital final total</td>
+              <td colspan="3" rowspan="1" class="tdFinalT2" id="capitalFinalTotalE">0</td>
+            </tr>
+            <tr>
+              <td colspan="6" rowspan="1" class="tdFinalT1" id="gananciasPerdidasE">Ganancias/P&eacute;rdidas</td>
+              <td colspan="3" rowspan="1" class="tdFinalT2" id="diferenciaTotalE">0</td>
+            </tr>
+          </tfoot>
          </table> <br>
-         <!--  
-         <table class="tabla-css">
-            <thead>
-                <tr>
-                    <td>Simbolo </td>
-                    <td>BTC/USDT</td>
-                    <td>BTC/USDT</td>
-                    <td>BTC/USDT</td>
-                    <td>BTC/USDT</td>
-                    <td>---</td>
-                </tr>
-            </thead> 
-            <tbody id=""></tbody>
-             <tr>
-               <td>Capital inicial</td>
-               <td>1,000.00 </td>
-               <td>8,000.00</td>
-               <td>4,299.00</td>
-               <td>2,394.00</td>
-               <td>...</td>
-             </tr>
-             <tr>
-              <td>Compra</td>
-              <td>50,000.00 </td>
-              <td>48,000.00</td>
-              <td>49,000.00</td>
-              <td>52,000.00</td>
-              <td>...</td>
-            </tr>
-            <tr>
-
-            <tr>
-              <td>Venta</td>
-              <td>73,000.00 </td>
-              <td>73,000.00</td>
-              <td>73,000.00</td>
-              <td>73,000.00</td>
-              <td>...</td>
-            </tr><tr>
-              <td>Diferencia</td>
-              <td>23,000.00 </td>
-              <td>25,000.00</td>
-              <td>24,000.00</td>
-              <td>21,000.00</td>
-              <td>...</td>
-            </tr><tr>
-              <td>Comision</td>
-              <td>0.10</td>
-              <td>0.10</td>
-              <td>0.10</td>
-              <td>0.10</td>
-              <td>...</td>
-            </tr><tr>
-              <td>Ganancia</td>
-              <td>1,550.00 </td>
-              <td>4,000.00</td>
-              <td>4,299.00</td>
-              <td>2,394.00</td>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>Capital final</td>
-              <td>6,000.00 </td>
-              <td>48,000.00</td>
-              <td>4,299.00</td>
-              <td>52,394.00</td>
-              <td>120,000.00</td>
-            </tr> 
-
-         </table>
-         -->
-       </div><!--  FIN DE <div class="tablas"></div> -->
+        </div><!--  FIN DE <div class="tablas"></div> -->
         
       </article><!--   FIN DE article class="main_grid_2" -->
       <article class="main_grid_3">
@@ -1675,9 +1621,9 @@ z-index: 10;
    -->
 <script> 
 
-var ws='', r="rgb(200,0,0)", v='rgb(0,200,0)', TOGGLE=1, EDITAR=1, ACTUALIZAPRECIO=1
+var ws='', r="rgb(200,0,0)", v='rgb(0,200,0)', TOGGLE=1, EDITAR=1, ACTUALIZAPRECIO=1, TABLADINAMICA=1
 , simboloPar='',cuentaInicial='', gananciaXBTC='', comision='',gananciaXBTC='', gananciaXFraccion='', cuentaFinal='',pCompra='', pVenta=''
-, C=2, contC=0+C;
+, n=2, contD=0+n , contE=0+n , contTD=2 , contTE=0;
 var cuentaInicialT='', gananciaXBTCT='', comisionT='',gananciaXBTCT='', gananciaXFraccionT='', cuentaFinalT='',pCompraT='', pVentaT='';
 var  arrayBox=[0,0,0,0,0,0,0,0];
 
@@ -1742,7 +1688,7 @@ function cotizaciónBtc_WebSocket() {//CAMBIO DE PRECIO CADA 1 SEGUNDO , NO NECE
     else{cotizacionBTC.style.color=r;svgDOWN1.style.display='inline'; svgUP1.style.display='none';}
     old_price=price; simboloPar=data.s;	
     cotizacionBTC.innerText=formato(data.p); 
-    document.getElementById('precioVenta').value = formato(data.p);
+    document.getElementById('precioVentaVivo').value = formato(data.p);
     //simbolo.innerText=formato(simboloPar)+':'; 
     // title.innerText=formato(profit.value) +' | '+ formato(data.p) +  '' +' | CF[2024]-0b';
   }
@@ -1768,7 +1714,7 @@ function actualizaPreciosCard() { ///ACTUALIZA LAS RESPUESTAS CON EL PRECIO DEL 
 
       cuentaInicial= Number(cleanBoxes(document.getElementById("cuentaSpotI").value.replace(/[-,]/g,"")));
       pCompra= Number(cleanBoxes(document.getElementById("precioCompra").value.replace(/[-,]/g,"")));
-      pVenta= Number(cleanBoxes(cotizacionBTC.textContent.replace(/[-,]/g,"")));
+      (EDITAR==1)? pVenta= Number(cleanBoxes(document.getElementById("precioVentaVivo").value.replace(/[-,]/g,""))) : pVenta= Number(cleanBoxes(document.getElementById("precioVenta").value.replace(/[-,]/g,"")));
       comision= Number(cleanBoxes(document.getElementById("commission").value.replace(/[-,]/g,"")));
 
       gananciaXBTC= pVenta - pCompra;
@@ -1794,60 +1740,70 @@ function actualizaPreciosCard() { ///ACTUALIZA LAS RESPUESTAS CON EL PRECIO DEL 
 
 function agregarAtabla(){ 
   actualizaPreciosCard();//FUNCION NESESARIA PARA INSERTAR VALORES EN TABLA  class='td_cf'
-  contC = contC+1;
-  console.log('contC',contC);
-  document.getElementById('data').innerHTML +=  "<tr id='tr_"+contC+"'"+" ><td class='td_cf' id='td_sp"+contC+"'>"+simbolo.textContent.replace(':','')+"</td><td class='td_cf' id='td_ci"+contC+"'>"+formato(cuentaInicial)+"</td><td class='td_cf' id='td_pc"+contC+"'>"+
-  formato(pCompra)+"</td><td class='td_cf' id='td_pv"+contC+"'>"+formato(pVenta)+"</td><td class='td_cf' id='td_dp"+contC+"'>"+formato(gananciaXBTC)+"</td><td class='td_cf' id='td_c"+contC+"'>"+formato(comision)+"</td><td class='td_cf' id='td_p"+contC+"'>"+
-  formato(gananciaXFraccion)+"</td><td class='td_cf' id='td_cf"+contC+"'>"+formato(cuentaFinal)+"</td><td onclick='eliminarTr("+contC+")'"+" class='td_x' id='td_x"+contC+"'"+
-  ">"+"<div><svg onclick='eliminarTr("+contC+")'"+" xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 100 100'><path fill='' d= 'M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z'/></svg></div>"+"</td></tr>";
+  var contC=0 , est='';
+  //contE = contE+1;
+  //contD = contD+1;
+  (TABLADINAMICA==1)? (est='', contD=contD+1 ,contC=contD, contTD=contTD+1):(est='E', contE=contE+1 ,contC=contE, contTE=contTE+1);
 
-  for (let i = 1; i <= contC; i++) { onclick= 
-  actualizaColor(document.getElementById('td_dp'+contC), pVenta, pCompra);
-  actualizaColor(document.getElementById('td_p'+contC), gananciaXFraccion, 0);
-  actualizaColor( document.getElementById('td_cf'+contC), cuentaFinal, cuentaInicial);
+  var TR= "<tr id='tr_"+est+contC+"'"+" ><td class='td_cf' id='td_sp"+est+contC+"'>"+simbolo.textContent.replace(':','')+"</td><td class='td_cf' id='td_ci"+est+contC+"'>"+formato(cuentaInicial)+"</td><td class='td_cf' id='td_pc"+est+contC+"'>"+
+  formato(pCompra)+"</td><td class='td_cf' id='td_pv"+est+contC+"'>"+formato(pVenta)+"</td><td class='td_cf' id='td_dp"+est+contC+"'>"+formato(gananciaXBTC)+"</td><td class='td_cf' id='td_c"+est+contC+"'>"+formato(comision)+"</td><td class='td_cf' id='td_p"+est+contC+"'>"+
+  formato(gananciaXFraccion)+"</td><td class='td_cf' id='td_cf"+est+contC+"'>"+formato(cuentaFinal)+"</td><td onclick='eliminarTr"+est+"("+contC+")'"+" class='td_x' id='td_x"+est+contC+"'"+
+  ">"+"<div><svg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 100 100'><path fill='' d= 'M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z'/></svg></div>"+"</td></tr>";
+ 
+  (TABLADINAMICA==1)? (document.getElementById('tabla_1a').style.display='inline', document.getElementById('dataD').innerHTML += TR) : (document.getElementById('tabla_2a').style.display='inline', document.getElementById('dataE').innerHTML += TR);
+  
+  //document.getElementById('dataD').innerHTML +=  "<tr id='tr_"+contC+"'"+" ><td class='td_cf' id='td_sp"+contC+"'>"+simbolo.textContent.replace(':','')+"</td><td class='td_cf' id='td_ci"+contC+"'>"+formato(cuentaInicial)+"</td><td class='td_cf' id='td_pc"+contC+"'>"+
+  //formato(pCompra)+"</td><td class='td_cf' id='td_pv"+contC+"'>"+formato(pVenta)+"</td><td class='td_cf' id='td_dp"+contC+"'>"+formato(gananciaXBTC)+"</td><td class='td_cf' id='td_c"+contC+"'>"+formato(comision)+"</td><td class='td_cf' id='td_p"+contC+"'>"+
+  //formato(gananciaXFraccion)+"</td><td class='td_cf' id='td_cf"+contC+"'>"+formato(cuentaFinal)+"</td><td onclick='eliminarTr("+contC+")'"+" class='td_x' id='td_x"+contC+"'"+
+  //">"+"<div><svg onclick='eliminarTr("+contC+")'"+" xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 100 100'><path fill='' d= 'M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369C61.42,57.647,61.42,54.687,59.595,52.861z'/></svg></div>"+"</td></tr>";
+
+  for (let i = 1; i <= contC; i++) { 
+  actualizaColor(document.getElementById('td_dp'+est+contC), pVenta, pCompra);
+  actualizaColor(document.getElementById('td_p'+est+contC), gananciaXFraccion, 0);
+  actualizaColor( document.getElementById('td_cf'+est+contC), cuentaFinal, cuentaInicial);
   }
-  suma();
+  suma(contD,'');suma(contE,'E');
 }
 
-function actualizaPreciosTabla(){
+function actualizaPreciosTablaDinamica(n,s){
   pVentaT= Number(cleanBoxes(cotizacionBTC.textContent.replace(/[,]/g,"")));
+  for (let i = 1; i <= n; i++) {
+  cuentaInicialT= Number(cleanBoxes(document.getElementById("td_ci"+s+i).textContent.replace(/[,]/g,"")));
+  pCompraT= Number(cleanBoxes(document.getElementById("td_pc"+s+i).textContent.replace(/[,]/g,"")));
 
-  for (let i = 1; i <= contC; i++) {
-  cuentaInicialT= Number(cleanBoxes(document.getElementById("td_ci"+i).textContent.replace(/[,]/g,"")));
-  pCompraT= Number(cleanBoxes(document.getElementById("td_pc"+i).textContent.replace(/[,]/g,"")));
-  comisionT= Number(cleanBoxes(document.getElementById("td_c"+i).textContent.replace(/[,]/g,"")));
+  comisionT= Number(cleanBoxes(document.getElementById("td_c"+s+i).textContent.replace(/[,]/g,"")));
   gananciaXBTCT= pVentaT - pCompraT;
   var gananciaXFraccion0= (gananciaXBTCT - (((pCompraT/100)*comisionT) +(((pCompraT + gananciaXBTCT)/100)*comisionT)))*(cuentaInicialT/pCompraT) ;
   cuentaFinalT= cuentaInicialT+gananciaXFraccion0;
   gananciaXFraccionT= gananciaXFraccion0;
   
-  document.getElementById('td_p'+i).innerText= formato(gananciaXFraccionT); //(gananciaXFraccionT > 0)? profit.style.color=v : profit.style.color=r;
-  document.getElementById('td_cf'+i).innerText= formato(cuentaFinalT); 
+  document.getElementById('td_p'+s+i).innerText= formato(gananciaXFraccionT); //(gananciaXFraccionT > 0)? profit.style.color=v : profit.style.color=r;
+  document.getElementById('td_cf'+s+i).innerText= formato(cuentaFinalT); 
   
-  actualizaColor(document.getElementById('td_p'+i),gananciaXFraccionT,0);
-  actualizaColor(document.getElementById('td_dp'+i),cuentaFinalT,cuentaInicialT);
-  actualizaColor(document.getElementById('td_cf'+i),cuentaFinalT,cuentaInicialT);
+  actualizaColor(document.getElementById('td_p'+s+i),gananciaXFraccionT,0);
+  actualizaColor(document.getElementById('td_dp'+s+i),cuentaFinalT,cuentaInicialT);
+  actualizaColor(document.getElementById('td_cf'+s+i),cuentaFinalT,cuentaInicialT);
 
 
-  document.getElementById('td_pc'+i).innerText = formato(pCompraT);
-  document.getElementById('td_pv'+i).innerText = formato(pVentaT);
-  document.getElementById('td_dp'+i).innerText = formato(gananciaXBTCT);
-  document.getElementById('td_ci'+i).innerText = formato(cuentaInicialT);
-  document.getElementById('td_c' +i).innerText = formato(comisionT); 
+  document.getElementById('td_pc'+s+i).innerText = formato(pCompraT);
+  document.getElementById('td_pv'+s+i).innerText = formato(pVentaT);
+  document.getElementById('td_dp'+s+i).innerText = formato(gananciaXBTCT);
+  document.getElementById('td_ci'+s+i).innerText = formato(cuentaInicialT);
+  document.getElementById('td_c' +s+i).innerText = formato(comisionT); 
 
-  document.getElementById('td_sp' +i).innerText = simbolo.textContent.replace(':','');
+  document.getElementById('td_sp'+s+i).innerText = simbolo.textContent.replace(':','');
  }
- suma();
+ suma(contD,'');suma(contE,'E');
 }
 
 
 var cuentainicial=0, cuentaFinal=0, sumaTotal_ci=0, sumaTotal_cf=0, array_ci=[], array_cf=[];
-function suma(){
+function suma(n,s){//console.log("n, s:", n,s);
   array_cf=[];array_ci=[];
-  for (let i = 1; i < contC+1; i++) {
+  for (let i = 1; i < n+1; i++) {
     //console.log("Valor de i:", i);
-    cuentainicial = Number(cleanBoxes(document.getElementById('td_ci'+i).textContent.replace(/[,]/g,"")));;
-    cuentaFinal = Number(cleanBoxes(document.getElementById('td_cf'+i).textContent.replace(/[,]/g,"")));; 
+    cuentainicial = Number(cleanBoxes(document.getElementById('td_ci'+s+i).textContent.replace(/[,]/g,"")));;
+    cuentaFinal = Number(cleanBoxes(document.getElementById('td_cf'+s+i).textContent.replace(/[,]/g,"")));; 
 
     //console.log("cuentaFinal:", cuentaFinal);
     array_ci.push(cuentainicial);array_cf.push(cuentaFinal);
@@ -1858,24 +1814,22 @@ function suma(){
   }
   //console.log("array_cf:", array_cf);console.log("sumaTotal_cf:", sumaTotal_cf);
   //console.log("------------------");
-  document.getElementById('capitalIniciaTotal').innerText = formato(sumaTotal_ci);
-  document.getElementById('capitalFinalTotal').innerText = formato(sumaTotal_cf); 
-  document.getElementById('diferenciaTotal').innerText = formato(sumaTotal_cf - sumaTotal_ci); 
+  document.getElementById('capitalIniciaTotal'+s).innerText = formato(sumaTotal_ci);
+  document.getElementById('capitalFinalTotal'+s).innerText = formato(sumaTotal_cf); 
+  document.getElementById('diferenciaTotal'+s).innerText = formato(sumaTotal_cf - sumaTotal_ci); 
 
   if (sumaTotal_cf>sumaTotal_ci) {
-    document.getElementById('gananciasPerdidas').innerText = 'Ganancias';
+    document.getElementById('gananciasPerdidas'+s).innerText = 'Ganancias';
   } else if(sumaTotal_cf==sumaTotal_ci){
-    document.getElementById('gananciasPerdidas').innerText = '';
+    document.getElementById('gananciasPerdidas'+s).innerText = '';
   }
   else{
-    document.getElementById('gananciasPerdidas').innerText = 'Perdidas';
+    document.getElementById('gananciasPerdidas'+s).innerText = 'Pérdidas';
   }
   
   //actualizaColor(document.getElementById('capitalIniciaTotal'),cuentaFinalT,cuentaInicialT);
-  actualizaColor(document.getElementById('capitalFinalTotal'),sumaTotal_cf,sumaTotal_ci);
-  actualizaColor(document.getElementById('diferenciaTotal'),sumaTotal_cf,sumaTotal_ci);
-
-
+  actualizaColor(document.getElementById('capitalFinalTotal'+s),sumaTotal_cf,sumaTotal_ci);
+  actualizaColor(document.getElementById('diferenciaTotal'+s),sumaTotal_cf,sumaTotal_ci); 
 }
 ///suma();
 
@@ -1898,14 +1852,16 @@ function navToggle(){
 }
 function editar(){
   if (EDITAR==1)  {
-    stopTimer();editando.innerText='Terminar edición';EDITAR=0;
-    cuentaSpotI.disabled = false; precioCompra.disabled = false; precioVenta.disabled = true; Difprecio.disabled = true; commission.disabled = false; profit.disabled = true; cuentaSpotF.disabled = true;
-    div_padding1.style.opacity='0.75';div_padding2.style.opacity='0.75';div_padding3.style.opacity='0.75'; //document.getElementsByClassName("colors__item");
-    
+    stopTimer();editando.innerText='Terminar edición';EDITAR=0;  ;agregarATabla.innerText='Insertar en tabla estática';TABLADINAMICA=0;
+    cuentaSpotI.disabled = false; precioCompra.disabled = false; precioVenta.disabled = false; Difprecio.disabled = true; commission.disabled = false; profit.disabled = true; cuentaSpotF.disabled = true;
+    dp11.style.opacity='0.5';dp10.style.opacity='0.5';dp7.style.opacity='0.5'; //document.getElementsByClassName("colors__item");
+    document.getElementById("precioVentaVivo").style.display="none"; document.getElementById("precioVenta").style.display="inline"; //document.getElementById("precioVenta").style.color="rgb(255,255,0)";
+    precioVenta.value=precioVentaVivo.value;
   }
-  else {startTimer();editando.innerText='Iniciar edición';EDITAR=1;
-    cuentaSpotI.disabled = true; precioCompra.disabled = true; precioVenta.disabled = true; Difprecio.disabled = true; commission.disabled = true; profit.disabled = true; cuentaSpotF.disabled = true;
-    div_padding1.style.opacity='1';div_padding2.style.opacity='1';div_padding3.style.opacity='1';
+  else {startTimer();editando.innerText='Iniciar edición';EDITAR=1;  ;agregarATabla.innerText='Insertar en tabla dinámica';TABLADINAMICA=1;
+    cuentaSpotI.disabled = true; precioCompra.disabled = true; precioVenta.disabled = false; Difprecio.disabled = true; commission.disabled = true; profit.disabled = true; cuentaSpotF.disabled = true;
+    dp11.style.opacity='1';dp10.style.opacity='1';dp7.style.opacity='1';
+    document.getElementById("precioVentaVivo").style.display="inline"; document.getElementById("precioVenta").style.display="none"; //document.getElementById("precioVentaVivo").style.color="rgb(0,255,255)"
   }
 }
 
@@ -1938,9 +1894,37 @@ function article2_columnLeft(){
   booleanGT=1; article2();
 }
 
+function eliminarTablaD(){
+  contTD=0;
+  document.getElementById('tabla_1a').style.display='none';//document.getElementById('tr_'+c).remove(); 
+  for (let i = 1; i <= contD; i++) {
+    document.getElementById('tr_'+i).style.display='none';document.getElementById("td_ci"+i).innerText=0;
+  }
+  actualizaPreciosTablaDinamica(contD,'');
+
+}
+function eliminarTablaE(){
+  contTE=0;
+  document.getElementById('tabla_2a').style.display='none';//document.getElementById('tr_'+c).remove(); 
+  for (let i = 1; i <= contE; i++) {
+    document.getElementById('tr_E'+i).style.display='none';document.getElementById("td_ciE"+i).innerText=0;
+  }
+  actualizaPreciosTablaDinamica(contE,'E');
+
+}
 function eliminarTr(c){
+  contTD=contTD-1; console.log("contTD:", contTD);
   document.getElementById('tr_'+c).style.display='none';//document.getElementById('tr_'+c).remove();
   document.getElementById("td_ci"+c).innerText=0;
+  actualizaPreciosTablaDinamica(contD,'');
+  if (contTD==0) {document.getElementById('tabla_1a').style.display='none';}
+}
+function eliminarTrE(c){
+  contTE=contTE-1; console.log("contTE:", contTE);
+  document.getElementById('tr_E'+c).style.display='none';//document.getElementById('tr_'+c).remove();
+  document.getElementById("td_ciE"+c).innerText=0;
+  actualizaPreciosTablaDinamica(contE,'E');
+  if (contTE==0) {document.getElementById('tabla_2a').style.display='none';}
 }
 
 ///------------------------------------------------------------------------------------------------------------------------
@@ -2089,7 +2073,7 @@ boxes[i].addEventListener("input", (e) => {
 ///------------------------------------------------------------------------------------------------------------------------
 
 function newYear(){ // 'August' , 'September' // 25 , 26 // 2024 , 2024 // 0,0 // 0,0 // 0,0  
-  actualizaPreciosCard();actualizaPreciosTabla();
+  actualizaPreciosCard();actualizaPreciosTablaDinamica(contD,'');;
  } 
  
  var timerID; 
@@ -2136,4 +2120,3 @@ Su sitio web consta de muchas páginas diferentes. Cada página web consta de va
 </script>
 </body>
 </html>
-  
