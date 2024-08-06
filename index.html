@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="css/CF[2024]-2b.css" /> -->
-    <title>CF[2024]-2b-paratelefono</title>
+    <title>CF[2024]-2b-paratelf</title>
 
     <style type="text/css">
- 
+  
 @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 /* 
 @font-face {font-family: "Saira Expanded";src: url("Saira_Expanded-Bold.ttf");}
@@ -17,13 +17,14 @@
    --y: hsl(0, 100%, 50%);--x: #0E2339;--x1: #101a29;--x2: #182436;--x3: #141C29;
    --pr1mary-color: rgb(227, 238, 255);/* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(228, 100%, 30%) */
    --text-color:rgb(130, 130, 130);    /* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(214, 7%, 79%) */
-   --bg-color:rgb(14, 14, 14);           /* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(0, 0%, 14%) */
+   --bg-color:rgb(24, 24, 24);           /* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(0, 0%, 14%) */
    --html-color: hsla(240, 100%, 6%, 1.0);
-   --bg-card-color: rgb(9, 9, 9);      /* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(0, 0%, 11%) */
+   --bg-card-color: rgb(14, 14, 14);      /* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(0, 0%, 11%) */
    --border-color: rgb(106, 106, 106);
    --bg-table-color: rgb(28, 28, 28);
    --bg-table-color2: rgb(48, 48, 48);
-   --border-radius: 5px;
+   --border-radius: 0.75rem;
+   --border-radius_tex: 0.5rem;
    --transition: color 0.1s, background-color 0.6s ease-in-out;
    --skill-bar-length:0%;
    --font-family1: 'Saira', 'Saira Expanded SemiBold', sans-serif;/*font-family: "Roboto", sans-serif;*/ /*font-family: Impact, sans-serif;'Times New Roman'; 'Consolas'; 'Oswald'*/
@@ -31,12 +32,12 @@
    --font-size1: 0.9rem;/*TAMAÑO TEXTO NORMAL --font-size1: 0.80rem;*/ 
    --font-size2: 1.25rem; /*TAMAÑO PARA SUB TITULOS --font-size2: 0.86rem;*/ 
    --font-size3: 1rem; /*TAMAÑO PARA TITULOS --font-size3: 1.25rem; */
-   --font-size4: 0.8rem; /*TAMAÑO PARA TELEF CON WIDTH 320PX --font-size4: 0.8rem; */
+   --font-size4: 0.75rem; /*TAMAÑO PARA TELEF CON WIDTH 320PX --font-size4: 0.8rem; */
    --font-weight1: 700;  /*GROSOR PARA TEXTO TITULOS*/ 
    --font-weight2: 700;  /*GROSOR TEXTO NORMAL*/
    --font-weight3: 700;  /*GROSOR TEXTO TABLA*/
    --font-style1: italic; 
-   --box-shadow1: 0 0 4px var(--border-color);
+   --box-shadow1: 0 0 2px var(--border-color); /* --box-shadow1: none . Elimina (o simplemente no establece) sombra en un elemento.*/
 }
 /*
 html{background-color: var(--html-color);}   CORREGIR P' CUANDO TABLAS CREADAS SE DESBORDAN*/ 
@@ -201,14 +202,13 @@ z-index: 10;
 
   
 .card{
-    border: 1px solid var(--border-color);;
     padding: 5px ; /*padding: 0 5px 5px 5px ; */
     background: var(--bg-card-color);transition: var(--transition);
     border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
 }
 .card_left{
-    border: 1px solid var(--border-color); border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
-    padding: 5px ; /*padding: 10px; margin: -20px 0 0 0; */
+    border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
+    padding: 0 5px ; /*padding: 10px; margin: -20px 0 0 0; */
     background: var(--bg-card-color);transition: var(--transition);
     width: 310px; ;
 }    
@@ -220,16 +220,15 @@ z-index: 10;
 .card__options .card__option1 .s2 {
     font-size: var(--font-size1); font-family: var(--font-family2);font-weight: var(--font-weight2);
     color: var(--text-color);
-    margin: 0;padding: 0.5em 0.5em 0.5em 0.5em;
+    margin: 0;padding: 0em 0.5em 0.5em 0.5em;
 }
 @media screen and  (max-width: 450px) {.card__options .card__option1 .s2 {font-size: var(--font-size4);}}
 
 .card__options .card__option , .card__options .card__option1{
     transition: 0.2s; /*2 ANIMAR p */
     background-color: var(--bg-card-color);
-    border: 1px solid var(--border-color);
     border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
-    padding: 10px;margin: 5px;
+    padding: 0.75rem ;margin: 0.75rem 0.25rem;
 }
 .card__options .card__option1:hover {
     background-color: var(--bg-card-color);
@@ -237,7 +236,7 @@ z-index: 10;
 }
 .card__options .card__option1 .div1 {
     display: flex;align-items: center;
-    padding: 0.5em 0.5em 0.5em 0.5em; margin: 0.35em;border: 1px solid var(--border-color);;
+    padding: 0.5em 0.5em 0.5em 0.5em; margin: 0.75em;;
     border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
 }
 .card__options .card__option1 .s1  {
@@ -306,7 +305,7 @@ z-index: 10;
 }
 
 .columnLeft{
-    background-color: var(--bg-card-color);
+    background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0px;padding: 5px;
     display: flex;
@@ -336,9 +335,9 @@ z-index: 10;
     display: none;
     flex-direction: column;
     align-items: flex-start;  
-    border: 1px solid var(--border-color);;
+    border:none;
     border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
-    padding: 0 5px 5px 5px ;
+    padding: 0.5rem 0.5rem 0.25rem 0.5rem ;
 }
 .card_center .card_trade_subtitle {
     display: flex;
@@ -408,9 +407,9 @@ z-index: 10;
 
 
 .div_padding{
-    background-color: var(--bg-card-color);opacity: 1;
-    padding: 5px;margin: 5px 0;
-    border: 1px solid  var(--border-color);border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
+    background-color: var(--bg-color);opacity: 1;
+    padding:0.25rem 0.5rem;margin: 0.75rem 0;
+    border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
 }
 .div_padding_TED{
     padding: 0px;margin-bottom: 5px;
@@ -450,9 +449,9 @@ z-index: 10;
   font-size: var(--font-size1);font-family: var(--font-family2);font-weight: var(--font-weight2);
   /* font-size: 0.8rem; */
   color: var(--text-color);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
-  background-color: var(--bg-color);
+  border-radius: var(--border-radius_tex); box-shadow: var(--box-shadow1);
+  border: none;
+  background-color: var(--bg-card-color);
    
 }
 .datos select{
@@ -460,8 +459,7 @@ z-index: 10;
     text-align: center;
     font-size: var(--font-size1);font-family: var(--font-family2); font-weight: var(--font-weight2); 
     color: var(--text-color);;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
+    border-radius: var(--border-radius_tex); box-shadow: var(--box-shadow1);
     background-color: var(--bg-color);
 }
 @media screen and  (max-width: 900px) {
@@ -536,7 +534,7 @@ z-index: 10;
 
 .buttons div{
     text-align: center;
-    margin-top: 0.5rem;margin-bottom: 0.5rem;margin-left: 0.5rem;margin-right: 0.5rem;
+    margin-top: 0;margin-bottom: 0.5rem;margin-left: 0.5rem;margin-right: 0.5rem;
     padding: 0.5rem 1rem;
     font-size: var(--font-size1);font-family: var(--font-family2); font-weight: var(--font-weight2);
     background-color: rgb(1, 61, 225); color: var(--text-color);
@@ -565,7 +563,7 @@ z-index: 10;
     
 }
 .columnRight{
-    background-color: var(--bg-card-color);
+    background-color: var(--bg-color);
     color: var(--text-color);
     font: 1em sans-serif;
     margin: 0px;padding: 5px;
@@ -591,7 +589,6 @@ z-index: 10;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border-top:  1px solid var(--text-color);;
     margin: 10px; 
     overflow: auto;
 }
@@ -709,7 +706,6 @@ z-index: 10;
     justify-content:center;
     background-color: var(--bg-card-color);
     color: var(--text-color);
-    border-top:  1px solid var(--text-color);;
 } 
 .footer .socialmedia_1{
     display: flex;
@@ -762,7 +758,7 @@ z-index: 10;
 
 .svgInstagram:hover, .svgFacebook:hover, .svgYoutube:hover, .svgTwitter:hover, .svgWhatsapp:hover, .svgLinkedin:hover{cursor: pointer;}
 
-      
+
     </style>
 
   </head>
@@ -775,7 +771,7 @@ z-index: 10;
                <path fill="" d="M6 22H62V26H6zM6 10H62V14H6zM6 34H62V38H6z"/>
              </svg>
             </div>
-           <div class="title"><p>C&Aacute;LCULOS FINANCIEROS [### github.com/Miau19/Miau3/]</p></div>
+           <div class="title"><p>************C&Aacute;LCULOS FINANCIEROS</p></div>
         </div>
         <div id="toggle-colors" class="colors">
           <div data-bg="rgb(0, 0, 30)"      data-card="rgb(0, 0, 0)"       data-text="rgb(150, 150, 152)" data-border="rgb(120, 120, 120)" data-menu="rgb(0, 4, 21)" class="colors__item colors__item--blue" ></div>
@@ -826,7 +822,7 @@ z-index: 10;
     <div class="container_flex_2">
       <div class="header2">
         <!-- <div class="TC" id="TC"><p>TRADE CRIPTOMONEDAS</p></div> -->
-        <div  class="title2"><p>C&Aacute;LCULOS FINANCIEROS [github]</p></div>
+        <div  class="title2"><p>C&Aacute;LCULOS FINANCIEROS</p></div>
       </div> 
     
       <article class="main_grid_1">
@@ -2120,3 +2116,5 @@ Su sitio web consta de muchas páginas diferentes. Cada página web consta de va
 </script>
 </body>
 </html>
+  
+  
