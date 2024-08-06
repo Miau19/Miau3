@@ -36,6 +36,7 @@
    --font-weight2: 700;  /*GROSOR TEXTO NORMAL*/
    --font-weight3: 700;  /*GROSOR TEXTO TABLA*/
    --font-style1: italic; 
+   --box-shadow1: 0 0 4px var(--border-color);
 }
 /*
 html{background-color: var(--html-color);}   CORREGIR P' CUANDO TABLAS CREADAS SE DESBORDAN*/ 
@@ -203,14 +204,12 @@ z-index: 10;
     border: 1px solid var(--border-color);;
     padding: 5px ; /*padding: 0 5px 5px 5px ; */
     background: var(--bg-card-color);transition: var(--transition);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
 }
 .card_left{
-    border: 1px solid var(--border-color);;
+    border: 1px solid var(--border-color); border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
     padding: 5px ; /*padding: 10px; margin: -20px 0 0 0; */
     background: var(--bg-card-color);transition: var(--transition);
-    border-radius: 10px;
-    box-shadow:  0 0 2px var(--border-color);
     width: 310px; ;
 }    
 
@@ -228,9 +227,8 @@ z-index: 10;
 .card__options .card__option , .card__options .card__option1{
     transition: 0.2s; /*2 ANIMAR p */
     background-color: var(--bg-card-color);
-    border: 2px solid var(--border-color);
-    border-radius: var(--border-radius);
-    box-shadow:  0 0 2px var(--border-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
     padding: 10px;margin: 5px;
 }
 .card__options .card__option1:hover {
@@ -239,9 +237,8 @@ z-index: 10;
 }
 .card__options .card__option1 .div1 {
     display: flex;align-items: center;
-    padding: 0.5em 0.5em 0.5em 0.5em; margin: 0.35em;border: 2px solid var(--border-color);;
-    border-radius: 10px;
-    box-shadow:  0 0 2px  var(--border-color);
+    padding: 0.5em 0.5em 0.5em 0.5em; margin: 0.35em;border: 1px solid var(--border-color);;
+    border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
 }
 .card__options .card__option1 .s1  {
     margin: 0;
@@ -340,7 +337,7 @@ z-index: 10;
     flex-direction: column;
     align-items: flex-start;  
     border: 1px solid var(--border-color);;
-    border-radius: var(--border-radius); box-shadow:  0 0 2px rgb(186, 186, 186);
+    border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
     padding: 0 5px 5px 5px ;
 }
 .card_center .card_trade_subtitle {
@@ -413,7 +410,7 @@ z-index: 10;
 .div_padding{
     background-color: var(--bg-card-color);opacity: 1;
     padding: 5px;margin: 5px 0;
-    border: 1px solid  var(--border-color);border-radius: var(--border-radius);box-shadow:  0 0 2px rgb(186, 186, 186);
+    border: 1px solid  var(--border-color);border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
 }
 .div_padding_TED{
     padding: 0px;margin-bottom: 5px;
@@ -454,7 +451,7 @@ z-index: 10;
   /* font-size: 0.8rem; */
   color: var(--text-color);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);box-shadow:  0 0 1px rgb(186, 186, 186);
+  border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
   background-color: var(--bg-color);
    
 }
@@ -464,7 +461,7 @@ z-index: 10;
     font-size: var(--font-size1);font-family: var(--font-family2); font-weight: var(--font-weight2); 
     color: var(--text-color);;
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
     background-color: var(--bg-color);
 }
 @media screen and  (max-width: 900px) {
@@ -543,7 +540,7 @@ z-index: 10;
     padding: 0.5rem 1rem;
     font-size: var(--font-size1);font-family: var(--font-family2); font-weight: var(--font-weight2);
     background-color: rgb(1, 61, 225); color: var(--text-color);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius); 
     transition: var(--transition);
     transition: 0.2s; /*2 ANIMAR p */
 }
@@ -692,7 +689,7 @@ z-index: 10;
 
 .card_2 .formula p{background-color: #3c0145;
  border: 1px solid  var(--border-color);
- border-radius: var(--border-radius);
+ border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
  padding: .5em .5em;margin: 5px;
  text-align: center;
 }
@@ -765,6 +762,7 @@ z-index: 10;
 
 .svgInstagram:hover, .svgFacebook:hover, .svgYoutube:hover, .svgTwitter:hover, .svgWhatsapp:hover, .svgLinkedin:hover{cursor: pointer;}
 
+      
     </style>
 
   </head>
