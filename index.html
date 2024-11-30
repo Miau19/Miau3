@@ -1370,8 +1370,14 @@ box-shadow: var(--box-shadow1) ;
     opacity: 1;
     pointer-events: auto;
   }
-  
 /*FIN DE: Custom-Select-Box-with-Search-master(1)---------------------------*/
+
+.option0{background: var(--bg-color);padding: 0.125rem;margin:  0.5rem;;
+  font-size: var(--font-size1);font-family: var(--font-family1);font-weight: var(--font-weight1);
+}
+.option0:hover{cursor: pointer;}
+
+
     </style>
 
   </head>
@@ -1439,15 +1445,17 @@ box-shadow: var(--box-shadow1) ;
     
     <div class="container_flex_2">
       <div>
-        <input type="text" id="formulario" style="background: #707070;border: 1px solid #7a7a7a"><br>
-        <div id="resultado" style="max-height: 300px;overflow: auto;background: #130d0d;"></div>
+        <input type="text" id="formulario" style="background: #707070;border: 1px solid #7a7a7a;font-size: 1rem;">
+        <span id="contar" style="opacity: 0.5;"></span><br>
+        <div id="resultado" style="max-height: 300px;overflow: auto;background: #130d0d;">
+        </div>
       </div>
       <div class="header2">
         <div class="title2"><p id="pTitle2" >C&Aacute;LCULOS FINANCIEROS</p></div>
       </div> 
     
       <article class="main_flex">
-
+        
         <div class="flex_1" id="flex_1">
         <div id="columnLeft" class="columnLeft">
             <div class="card_left">
@@ -1624,6 +1632,8 @@ box-shadow: var(--box-shadow1) ;
                    <div id="sinConexion" style="display: none;padding: 0;margin: 0;background: rgba(0, 7, 65, 0);">x</div>             
                   </div>
                 </div>
+                
+                 
 
                  <!--<div class="div_padding">
                   <div class="datos" >
@@ -3848,7 +3858,7 @@ boxes[i].addEventListener("input", (e) => {
     } 
   } console.log('arrayBox=', arrayBox);
   let sum = 0;//SUMAR ELEMENTOS DEL Array P' IMPRIMIR TEXTO EN CASILLAS Ó DEJARLO VACIO.
-  for (let index = 0; index < arrayBox.length; index++) {sum += arrayBox[index];}//arrayBox=[0, 0, 0, 0, 0, 0, 0, 0, 0] → [0, 0, 0, 0, 0, 0, 0, 0, 8] → [0, 0, 0, 0, 0, 0, 0, 7, 8] → ...      
+  for (let z = 0; z < arrayBox.length; z++) {sum += arrayBox[z];}//arrayBox=[0, 0, 0, 0, 0, 0, 0, 0, 0] → [0, 0, 0, 0, 0, 0, 0, 0, 8] → [0, 0, 0, 0, 0, 0, 0, 7, 8] → ...      
   if (sum==0) { 
     Difprecio.value= DIFERENCIA; profit.value= PROFIT; cuentaSpotF.value= CUENTASPOTF; IMPRIMIRTEXTO=1;
     actualizaColor(document.getElementById("profit"),o.g,0);
@@ -4839,8 +4849,7 @@ fetch('https://api.binance.com/api/v3/ticker/price')
   } 
 */
 
-/*Custom-Select-Box-with-Search-master(1)---------------------------*/
-
+/*Custom-Select-Box-with-Search-master(1)---------------------------*/ 
 const selected = document.querySelector(".selected"),
 SIMBOLO = document.getElementById("SIMBOLO"),
 optionsContainer = document.querySelector(".options-container"),
@@ -4861,7 +4870,7 @@ for (let i = 0; i < optionsList.length; i++) {//OJO: CAMBIAR forEach POR for , E
   optionsContainer.classList.remove("active");
   }); 
 }
-BUSCADO.addEventListener("click", () => {
+BUSCADO.addEventListener("click", () => {  
   if (buscado.textContent.substring(buscado.textContent.length-4)=='USDT') {
     selected.innerText = buscado.textContent;//OJO: label ES UNA ETIQUETA, SI SE AGREGAN OTROS label CAMBIAR querySelector POR UN getElementsByName
   optionsContainer.classList.remove("active");
@@ -4894,11 +4903,8 @@ const filterList = searchTerm => {
   searchTerm = searchTerm.toLowerCase();
   for (let i = 0; i < optionsList.length; i++) {//OJO: CAMBIAR forEach POR for , EN EXPLORADOR EDGE ANTIGUOS NO FUNCIONA 
     let label = optionsList[i].firstElementChild.nextElementSibling.innerText.toLowerCase();
-    if (label.indexOf(searchTerm) != -1) {
-      optionsList[i].style.display = "block"; a.push(0);
-    } else {
-      optionsList[i].style.display = "none"; a.push(1)
-    }
+    if (label.indexOf(searchTerm) != -1) {optionsList[i].style.display = "block"; a.push(0);} 
+    else {optionsList[i].style.display = "none"; a.push(1)}
     /* //OJO: NO BORRAR ESTE CODIGO, SIRVE PARA CUANDO SE SUPRIMAN LAS OPCIONES 
     let s = 0;
     for (let i = 0; i < a.length; i++) {s += a[i];}//17 = a.length = optionsList.length     
@@ -5512,6 +5518,7 @@ let arrayS=/*;
     "t"
 ];
 
+let index='', divs=0;
 const formulario = document.querySelector('#formulario');
 const boton = document.querySelector('#boton');
 const resultado = document.querySelector('#resultado');
@@ -5522,19 +5529,19 @@ const filtrar = ()=>{
   }else{
     resultado.innerHTML = '';
     const texto =formulario.value.toLowerCase();
-    for(let producto of arrayS){
-     let nombre = producto.toLowerCase();
+    for(let i = 0; i < arrayS.length; i++){
+     let nombre = arrayS[i].toLowerCase();
      if(nombre.indexOf(texto) !== -1){
+      index=i; console.log('mmm......',index);
        resultado.innerHTML += `
-        <br><div class="option"><input type="radio" style="display: none;"/><label>${producto}</label></div>
-        `
+        <div name="option0" class="option0" onclick="insertar(${index})">${arrayS[index]}</div>
+        ` 
      }
     }
+    //for (let i = 0; i < document.getElementsByName('option0').length; i++) {
+    //  contar.innerText=' '+ document.getElementsByName('option0').length;
+    //}
   }
-  
-
-
-
    //if (formulario.value == '') {
    // resultado.innerHTML = '';
    //}
@@ -5543,18 +5550,16 @@ const filtrar = ()=>{
    // resultado.innerHTML = `
    //  <div>Producto no encontrado... </div>`
    //}
-   
 }
+function insertar(index) {
+  simbolo.innerHTML=arrayS[index]; console.log('arrayS[index].textContent......',arrayS[index]);
 
-
+ }
 formulario.addEventListener('keyup', filtrar);
 
-///filtrar();
 
 
 
-  
- 
 
 ////################ decimal.js #########################
 ////################ decimal.js #########################
