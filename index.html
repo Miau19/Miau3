@@ -19,7 +19,7 @@
     --pr1mary-color: rgb(192, 192, 192);/* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(228, 100%, 30%) */
     --text-color:rgba(234, 234, 234, 0.75);    /* PARA INICIAR EN MODO CLARO CAMBIAR A: hsl(214, 7%, 79%) */
     --border-color: rgb(169, 169, 169);
-    --border-tr-color: rgba(193, 193, 193, 0.5);
+    --border-tr-color: rgba(193, 193, 193, 0.25);
     --border-radius_tex: 0.5rem;  /* PARA ARCO INTERNO */
     --border-radius: 0.75rem;  /* PARA ARCO EXTERNO (ARCO INTERNO + PADDING)*/
     --transition: color 1.5s, background-color 1.2s ease-in-out;
@@ -41,8 +41,8 @@
     --paddingC1: 0.250rem 0;  /* padding para celdas de cTable1: #celda_c1... */
     --paddingC2: 0.55rem 1rem;/* padding para .btnArrowUp... */
     /* VALORES PARA CONTROL DE LISTA DE OPCIONES: */
-    --height_LO1: 1.8rem;--height_LO2: 1.5rem;--height_LO3: 1.5rem;
-    --width_LO1: 12rem;--width_LO2: 10rem;--width_LO3: 6.5rem;
+    --height_LO1: 2rem;--height_LO2: 1.7rem;--height_LO3: 1.7rem;
+    --width_LO1: 12rem;--width_LO2: 10rem;--width_LO3: 7.2rem;
     --n: 1.6rem;
     /*FIN DE: VALORES PARA CONTROL DE LISTA DE OPCIONES */
     --widhtSvg: 0.5rem; --heightSvg: 0.5rem; /* VALORES PARA LOS svg DE TABLAS*/
@@ -270,6 +270,12 @@ z-index: 10;
 
 #card_3a h1,#card_3a  p {padding: 0rem;}
 
+.divTABLA{overflow-x: auto;margin-right: 0.25rem;}
+.divTABLA::-webkit-scrollbar{width: 10px;height: 10px;background: var(--bg-card-color);}
+.divTABLA::-webkit-scrollbar-track{      background: rgb(124, 124, 124);border-radius: 5px;}
+.divTABLA::-webkit-scrollbar-thumb{      background: rgb(   78, 78, 78);border-radius: 5px;}
+.divTABLA::-webkit-scrollbar-thumb:hover{background: rgb(   55, 55, 55);}
+
 .tablaP24h{ 
     border-collapse: collapse;
     color: var(--text-color);
@@ -282,7 +288,7 @@ z-index: 10;
 .tablaP24h .tdP24h_2 .div_v{
   display: block;justify-content: end;align-items: center; 
 }
-.tablaP24h .tdP24h_2 .div_v p{
+.tablaP24h .tdP24h_2 .div_v p{white-space: nowrap;
   padding: 0rem;margin: 0.5rem 0 0.5rem 0.5rem;
   text-align: right;
 }
@@ -323,8 +329,8 @@ z-index: 10;
  @media screen and  (max-width: 960px) { .main_flex{grid-template-columns:  1fr ;} }*/
  @media screen and (max-width: 320px) {.main_flex {padding: 0.25rem  0.25rem 0  0.25rem;}}
 
- .flex_1{
-    display: flex;justify-content: center;margin-bottom: 1.5rem; height: 500px; 
+ .flex_1{background: #006915;
+    display: flex;justify-content: center;margin-bottom: 1.5rem; height: 525px; 
  }
 
 .columnLeft{
@@ -560,7 +566,7 @@ z-index: 10;
 
 .columnRight{ 
     display: flex;
-    height: 500px;  
+    height: 523px;  
     width: 350px;
     color: var(--text-color);font: 1em sans-serif;
     padding: 0.5rem;
@@ -570,9 +576,10 @@ z-index: 10;
 @media screen and  (max-width: 1260px) { .columnRight{width: auto;} }
 
 .flex_3 {
-    display: flex;justify-content: center;flex-direction: column;
-    background-color: var(--bg-color);overflow: auto;
+    display: flex;justify-content: center;flex-direction: column;  margin-bottom: 20px;
+    background-color: var(--bg-color); width: 100%;overflow:auto;background: #74028600;
 }
+
 .flex_3::-webkit-scrollbar{width: 10px;height: 10px;background: var(--bg-color);}
 .flex_3::-webkit-scrollbar-track{      background: rgb(124, 124, 124);border-radius: 5px;}
 .flex_3::-webkit-scrollbar-thumb{      background: rgb(   78, 78, 78);border-radius: 5px;}
@@ -580,25 +587,30 @@ z-index: 10;
 
 .flex_3 .tablas{
     display: flex; justify-content: center; flex-direction: column;
-    background: rgba(80, 12, 0, 0.0);     width: 100%;padding: 5px;
+    background: rgba(80, 12, 0, 0.0); padding: 5px;background: #00691500;
 }
-
+/*
+.tablas::-webkit-scrollbar{width: 10px;height: 10px;background: var(--bg-color);}
+.tablas::-webkit-scrollbar-track{      background: rgb(124, 124, 124);border-radius: 5px;}
+.tablas::-webkit-scrollbar-thumb{      background: rgb(   78, 78, 78);border-radius: 5px;}
+.tablas::-webkit-scrollbar-thumb:hover{background: rgb(   55, 55, 55);}
+*/
 .flex_3 .tablas1{
     display: flex;justify-content: center;flex-direction: column;; width: 100%;
 }
 
 .flex_3 .tablas .marcoTabla1{display: block; justify-content: center;align-items: center;padding: 0px; margin-left:auto;margin-right:auto;margin-bottom: 1.5rem;box-shadow: var(--box-shadow1);/*  opacity: 0.0625;*/}
-.flex_3 .tablas .marcoTabla2{display: none;  justify-content: center;align-items: center;padding: 0px; margin-left:auto;margin-right:auto;margin-bottom: 1.0rem;box-shadow: var(--box-shadow1);}
+.flex_3 .tablas .marcoTabla2{display: block;  justify-content: center;align-items: center;padding: 0px; margin-left:auto;margin-right:auto;margin-bottom: 1.0rem;box-shadow: var(--box-shadow1);}
 .flex_3 .tablas .tabla-css {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
-.flex_3 .tablas .tabla-css td{border: solid 1px #0091b1; 
-    color: var(--text-color); font-size: var(--font-size4);font-family: var(--font-family2); font-weight: var(--font-weight2);
+.flex_3 .tablas .tabla-css td{
+    color: var(--text-color); font-size: var(--font-size1);font-family: var(--font-family2); font-weight: var(--font-weight2);
 }
-@media screen and  (max-width: 320px) {.flex_3 .tablas .tabla-css td{font-size: var(--font-size5);}
-}
+@media screen and  (max-width: 460px) {.flex_3 .tablas .tabla-css td{font-size: var(--font-size4);}}
+@media screen and  (max-width: 320px) {.flex_3 .tablas .tabla-css td{font-size: var(--font-size5);}}
 .flex_3 .tablas .tabla-css .tdHead{ padding: 0.0rem  0.0rem ;}
 
 .flex_3 .tabla-css .tdHead .d_s {
@@ -606,15 +618,14 @@ z-index: 10;
     text-align: left;white-space: nowrap; /* white-space: nowrap; suprime saltos de linea del origen*/
     padding: 0.0rem  0.250rem ;
 }
-.flex_3 .tabla-css .tdHead .d_h{background: #8000d5;
+.flex_3 .tabla-css .tdHead .d_h{background: #8000d500;
     display: block;justify-content: end;align-items: center; /*OJO display: block; EN CELDA DE TABLAPARA EDGE ANTIGUOS*/
     white-space: nowrap; /* */
 }
-.flex_3 .tabla-css .tdHead .d_h p{ background: #342100;
+.flex_3 .tabla-css .tdHead .d_h p{ background: #34210000;
     text-align: right; margin: 0.25rem  0.25rem 0.25rem  0.9rem ;/*OJO  margin: 0.25rem  0.25rem 0.25rem  1rem  */
 }
 .flex_3 .tabla-css .td_cf{
-    color: var(--text-color);font-size: var(--font-size4);font-family: var(--font-family2); font-weight: var(--font-weight2); 
     padding: 0.0rem  0.0rem ;
 }
 .flex_3 .tabla-css .td_cf .d_s { 
@@ -622,8 +633,8 @@ z-index: 10;
     text-align: left;white-space: nowrap;
     padding: 0.0rem  0.250rem ;
 } 
-.flex_3 .tabla-css .td_cf .d_cf{width: 100%;display: block;justify-content: end;align-items: center;background: #5f0000;} /*OJO display: block; EN CELDA DE TABLA PARA EDGE ANTIGUOS*/
-.flex_3 .tabla-css .td_cf .d_cf p{padding: 0px;margin: 0; text-align: right; margin: 0.25rem  0.25rem 0.25rem  0.9rem ;white-space: nowrap;background: #09001c;} /*OJO  margin: 0.25rem  0.25rem 0.25rem  1rem  */
+.flex_3 .tabla-css .td_cf .d_cf{width: 100%;display: block;justify-content: end;align-items: center;background: #5f000000;} /*OJO display: block; EN CELDA DE TABLA PARA EDGE ANTIGUOS*/
+.flex_3 .tabla-css .td_cf .d_cf p{padding: 0px;margin: 0; text-align: right; margin: 0.25rem  0.25rem 0.25rem  0.9rem ;white-space: nowrap;background: #09001c00;} /*OJO  margin: 0.25rem  0.25rem 0.25rem  1rem  */
 .flex_3 .tabla-css .td_cf .ds{display: flex;justify-content: start;align-items: center;}
 .flex_3 .tabla-css .td_cf .ds .de{width:2px;font-size: 11px; border: none;background: #ff5900;}
 .flex_3 .tablas .tabla-css .td_x{border: none;}
@@ -635,19 +646,19 @@ z-index: 10;
 .flex_3 .tablas .tabla-css .tdFinalT1, .flex_3 .tabla-css .tdFinalT2{padding: 0.25rem  0.525rem ;}
 .flex_3 .tablas .tabla-css .tdFinalT1{text-align: left;border-right: none;}
 .flex_3 .tablas .tabla-css .tdFinalT2{text-align: right;border-left: none;}
-.flex_3 .tablas .tabla-css .td_separador{height: 1.525rem; }
-.flex_3 .tablas .tabla-css .TR{background: var(--bg-card-color);border-top: solid 0.07rem var(--border-tr-color); }
+.flex_3 .tablas .tabla-css .td_separador p{padding: 0.1250rem  0.250rem ;margin: 0;;opacity: 0; }
+.flex_3 .tablas .tabla-css .TR{background: var(--bg-card-color);border-top: solid 2px var(--border-tr-color)}
 .flex_3 .tablas .tabla-css .TR:hover{background:var(--bg-color)}
 
 .td_Dtitulo{background: var(--bg-card-color); margin: 0;padding: 0;}/* box-shadow: var(--box-shadow1); */
 .div_Dtitulo{width: 100%; display: flex;justify-content: space-between; align-items: center; padding-left: 0.525rem;}
 .divs_svgs{display: flex;justify-content: center;align-items: center;}
-.div_Dsvg , .div_DsvgE{display: flex;justify-content: center; align-items: center; padding: 0.5rem  1.0rem;}
+.div_Dsvg , .div_DsvgE{width: 4rem; display: flex;justify-content: center; align-items: center; padding: 0.75rem  1.0rem;}
 #div_Dsvg:hover , #div_DsvgE:hover{cursor: pointer; background-color: rgb(200, 0, 0);}
 #div_svg_max , #div_svg_maxE{display: none;}
 #div_svg_min:hover , #div_svg_max:hover , #div_svg_minE:hover , #div_svg_maxE:hover{cursor: pointer; background-color: var(--border-tr-color);}
 
-#div_Dsvg svg , #div_DsvgE svg{width: var(--widhtSvg);height: var(--heightSvg);margin: 0.125rem; }
+#div_Dsvg svg , #div_DsvgE svg{ width: var(--widhtSvg);height: var(--heightSvg);margin: 0.125rem; }
 #div_svg_min svg , #div_svg_max svg{ width: 0.75rem;height: 0.75rem;margin: 0.0rem; }/* width: 0.75rem;height: 0.75rem;; */
 #div_svg_minE svg, #div_svg_maxE svg{width: 0.75rem;height: 0.75rem;margin: 0.0rem; }/*  width: 0.75rem;height: 0.75rem;; */
 
@@ -672,7 +683,7 @@ z-index: 10;
 .tituloCard{
     display: flex;justify-content: start;align-items: center;margin:0;padding: 0;
 }
-.tituloCard p {padding: 0;margin: 0;}
+.tituloCard p {padding: 0;margin: 0;white-space: nowrap;}
 .tituloCard .pT {font-size: var(--font-size3);font-family: var(--font-family1);
     font-weight: var(--font-weight1);margin:0.5rem 0.0rem;padding: 0 ;}
 .tituloCard0 .pT1, .tituloCard0 .pT2 {font-size: var(--font-size6);font-family: var(--font-family1);
@@ -898,7 +909,7 @@ z-index: 10;
 .div_s{width: 4.55rem;height: var(--height_LO1);}
 
 .select_s {
-    background: var(--bg-card-color);background: #00551a;
+    background: var(--bg-card-color);background: #00551a00;
     position: relative; z-index: 200;
     height: var(--height_LO1); top: -0.9rem;
     display: flex;justify-content: center;align-items: center;
@@ -1205,6 +1216,15 @@ box-shadow: var(--box-shadow1) ;
 
 
 /*Custom-Select-Box-with-Search-master(1)-----------------------------------*/
+.busqueda{display: none;}
+.busqueda.active{display: block;}
+#formulario{background: var(--bg-color);color: var(--text-color);width: 100%;padding: 0.25rem 0.75rem;margin: 0.5rem 0 0 0; border: 1px solid var(--text-color);font-size: var(--font-size1); border-radius: var(--border-radius); box-shadow: var(--box-shadow1);}
+#resultado{max-height: 200px;overflow: auto;background: #4b0b0b00;margin: 0.25rem 0.5rem;padding: 0rem 0;;}
+#resultado::-webkit-scrollbar{width: 10px;height: 10px;background: var(--bg-card-color);}
+#resultado::-webkit-scrollbar-track{      background: rgb(124, 124, 124);;border-radius: 5px;}
+#resultado::-webkit-scrollbar-thumb{      background: rgb( 78,   78, 78);border-radius: 5px;}
+#resultado::-webkit-scrollbar-thumb:hover{background: rgb( 55,   55, 55);}
+
 .div_paddingXX{
     background-color: var(--bg-color);;
     border-radius: var(--border-radius); box-shadow: var(--box-shadow1);
@@ -1234,20 +1254,27 @@ box-shadow: var(--box-shadow1) ;
     border-radius: var(--border-radius_tex);
   }
 @media screen and  (max-width: 960px) {
-      .select-box{ width:var(--width_LO2);}
+      .select-box{ width:var(--width_LO1);}
     } 
 @media screen and  (max-width: 460px) {
-      .select-box{width: var(--width_LO3);height: var(--height_LO3);}
+      .select-box{width: var(--width_LO1);height: var(--height_LO3);}
     }
-  .BUSCADO{background: rgba(139, 185, 0, 0);background: var(--bg-card-color); 
-    margin: 0.5rem 0.5rem  0.5rem  0.5rem;padding: 0.25rem 0; display: flex;justify-content: start;align-items: center;
+  .BUSCADO{background: var(--bg-card-color); background: rgba(104, 139, 1, 0);
+    margin: 0.25rem 0.25rem  0.25rem  0rem;padding: 0.25rem 0; display: flex;justify-content: start;align-items: center;
   }
-  .BUSCADO:hover{cursor: pointer;background: var(--bg-color);transition: .4s ease all;}
-  #buscado{background: rgba(132, 0, 255, 0);padding: 0 0.25rem;color: #975b00; overflow: auto; display: flex;justify-content: start;align-items: center;}
+  #buscado{background: rgba(63, 0, 122, 0);padding: 0 0.25rem;color: var(--text-color); overflow: auto; 
+    display: block;
+    max-height: 200px;width: 100%;
+  }
+  #buscado::-webkit-scrollbar{width: 10px;height: 10px;background: var(--bg-card-color);}
+  #buscado::-webkit-scrollbar-track{      background: rgb(124, 124, 124);;border-radius: 5px;}
+  #buscado::-webkit-scrollbar-thumb{      background: rgb( 78,   78, 78);border-radius: 5px;}
+  #buscado::-webkit-scrollbar-thumb:hover{background: rgb( 55,   55, 55);}
   
   .opcionesXX{background: var(--bg-card-color);background: #64000000;
       max-height: 200px; overflow: auto;margin: 0.25rem; 
       border-radius: 0 0 var(--border-radius_tex) var(--border-radius_tex);
+      display: block;flex-direction: column;
   }
   /*.opcionesXX.active{max-height: 200px;}*//*NO ES NESESARIO*/
   .opcionesXX::-webkit-scrollbar{width: 10px;height: 10px;background: var(--bg-card-color);}
@@ -1274,20 +1301,20 @@ box-shadow: var(--box-shadow1) ;
     cursor: pointer;
   }
   @media screen and  (max-width: 960px) {
-    .SIMBOLO{ width:var(--width_LO2);}
+    .SIMBOLO{ width:var(--width_LO1);}
   } 
   @media screen and  (max-width: 460px) {
-    .SIMBOLO{width: var(--width_LO3);height: var(--height_LO3);}
+    .SIMBOLO{width: var(--width_LO1);height: var(--height_LO3);}
   }
-  .selected { background: #ff00ff00;
+  .selected { background: #6b006b00;
     border-radius: 8px;
     display: flex;justify-content: center;align-items: center;
     color:  var(--text-color);
     font-size: var(--font-size1);font-family: var(--font-family1);font-weight: var(--font-weight1);
-    padding: 0 0.5rem 0.125rem 0.5rem;
+    padding: 0 0rem 0.125rem 0.5rem;
   }
   @media screen and  (max-width: 460px) {
-    .selected{font-size: var(--font-size4)}
+    .selected{font-size: var(--font-size4);}
   } 
 
   .imgSVG{background: #ff000000;
@@ -1317,17 +1344,18 @@ box-shadow: var(--box-shadow1) ;
     top: -1px;
   }
   
-  .select-box .option{background: #004c5300;background: var(--bg-card-color);
-    margin: 0rem 0.5rem 0.5rem 0.5rem; padding: 0.25rem;
+  .select-box .option{background: var(--bg-card-color);background: #004c5300;
+    margin: 0rem 0.25rem 0.25rem 0.125rem; padding: 0.25rem;
     cursor: pointer;
     font-size: var(--font-size1);font-family: var(--font-family1);font-weight: var(--font-weight1);
+    
   }
   @media screen and  (max-width: 460px) {
     .select-box .option{font-size: var(--font-size4);}
   }
 
   .select-box .option:hover {
-    background: var(--bg-color);
+    background: var(--bg-color);border: 1px solid var(--border-color);
     transition: .4s ease all;
   }
   
@@ -1372,11 +1400,14 @@ box-shadow: var(--box-shadow1) ;
   }
 /*FIN DE: Custom-Select-Box-with-Search-master(1)---------------------------*/
 
-.option0{background: var(--bg-color);padding: 0.125rem;margin:  0.5rem;;
+.option0{background: var(--bg-card-color);padding: 0.25rem 0.5rem;margin: 0rem 0rem 0rem 0rem;background: #00691500;
   font-size: var(--font-size1);font-family: var(--font-family1);font-weight: var(--font-weight1);
+  text-transform:uppercase;
 }
-.option0:hover{cursor: pointer;}
+.option0:hover{background: var(--bg-color);border: 1px solid var(--border-color);
+  cursor: pointer; transition: .4s ease all;}
 
+.coincidirTex , .coincidirTex0{color: #bf5115;}
 
     </style>
 
@@ -1444,10 +1475,11 @@ box-shadow: var(--box-shadow1) ;
 
     
     <div class="container_flex_2">
-      <div>
-        <input type="text" id="formulario" style="background: #707070;border: 1px solid #7a7a7a;font-size: 1rem;">
-        <span id="contar" style="opacity: 0.5;"></span><br>
-        <div id="resultado" style="max-height: 300px;overflow: auto;background: #130d0d;">
+      <div class="busqueda" id="busqueda">
+        <div style="background: #00000000; display: flex;justify-content: center;align-items: center;padding: 0 0.5rem;">
+         <input type="text" id="formulario" placeholder="Buscar" >
+        </div>
+        <div id="resultado" >
         </div>
       </div>
       <div class="header2">
@@ -1936,7 +1968,9 @@ box-shadow: var(--box-shadow1) ;
 
               <div class="tituloCard0"  >
                 <p class="pT">CRIPTOMONEDA:&nbsp;</p><div id="IMG1" style=" display: flex;align-items: center;justify-content: center;"></div>&nbsp;<p class="pT" id="monedas1" >---</p>&nbsp;<p class="pT1" id="TEX1" ></p>
-               </div>
+              </div>
+
+           <div class="divTABLA" >   
            <table class="tablaP24h">
             <tr>
               <td class="tdP24h">Precio Máximo en 24h&nbsp;</td>
@@ -1962,7 +1996,8 @@ box-shadow: var(--box-shadow1) ;
               <td class="tdP24h">Volumen(USDT) en 24h&nbsp;</td>
               <td class="tdP24h_2"> <div class="div_v"><p id="tdV24hUSDT_a"></p></div></td>
             </tr>
-           </table><br>
+           </table>
+           </div><br>
 
            <div class="hr"></div><br>
            <h3 style="text-transform: uppercase">Criptomonedas</h3>
@@ -2231,7 +2266,7 @@ box-shadow: var(--box-shadow1) ;
   
               <tfoot>
                 <tr name="TR" class="TR">
-                  <td colspan="9" rowspan="1" class="td_separador"></td>
+                  <td colspan="9" rowspan="1" class="td_separador"><p>|</p></td>
   
                 </tr>
                 <tr name="TR" class="TR">
@@ -2458,7 +2493,7 @@ box-shadow: var(--box-shadow1) ;
             </tbody>
             <tfoot>
               <tr name="TR" class="TR">
-                <td colspan="9" rowspan="1" class="td_separador"></td>
+                <td colspan="9" rowspan="1" class="td_separador"><p>|</p></td>
               </tr>
               <tr name="TR" class="TR">
                 <td colspan="6" rowspan="1" class="tdFinalT1">Capital inicial total</td>
@@ -2977,7 +3012,23 @@ var svgSOL,svgETH,svgDOGE,svgBNB,svgAVAX,svgBTC,svgXRP, svgNEAR,svgICP='',svgTAO
 let TEX= ['(Avalanche)','(BNB)','(Bitcoin)','(Dogecoin)','(Ethereum)','(Solana)','(XRP)','(NEAR Protocol)','(Internet Computer)','(Bittensor)','(Artificial Superintelligence Alliance)','(Render)','(The Graph)','(Celestia)','(Manta Network)','(Pyth Network)','(Pepe)','(Sui)']; 
 //ADEMAS AGREGARLA EN: function cardPrice24hr(){} , function data(){} , function inicializarCard(){} , function actualizaTablaDinamica(n,s){} , function imagenesSVG(){} Y EN: CF[2024]-2d.html ⭢ <div class="opciones0" id="opciones03">       
 //FIN DE: CUANDO SE AGREGA UNA NUEVA MONEDA, SE DEBEN DE AGREGAR AQUÍ 
-let simboloUpperCase='',simboloLowerCase=''; 
+let simboloUpperCase='',simboloLowerCase='', ARRAYPARUSDT=[]; 
+
+function cargarSimbolos() {//CARGA DE SIMBOLOS AL ABRIR LA PAGINA 
+  fetch('https://api.binance.com/api/v3/ticker/price')
+  .then( respuesta => respuesta.json() )
+  .then( datos => mostrarData(datos))
+  .catch( e => console.log(e))
+  const mostrarData = (data)=>{
+   for (let k = 0; k < data.length; k++) { 
+    let s=data[k].symbol.substring(data[k].symbol.length - 4);
+    if (s=='USDT') {//SOLAMENTE LLENARA EL ARRAY CON PAR 'USDT' (531 SIMBOLOS AL 2-DIC-24) 
+      ARRAYPARUSDT.push(data[k].symbol);
+    }
+   }
+   //console.log(ARRAYPARUSDT ,ARRAYPARUSDT.length);
+  } 
+}
 
 function formato(input) { // OJO::::: RECTIFICAR PARA: 18888888888888888 INTRODUCIDO EN id="precioCompra", DA COMO RESULTADO: 18,888,888,888,888,890.00  // 1999999999999999999 ➡ 2,000,000,000,000,000,000.00  // 19999999999999999 ➡ 20,000,000,000,000,000.00
   var cadena= new String(input); var x = cadena.split("."); //var x = cadena.replace(/,/g,"").split(".");
@@ -3621,6 +3672,7 @@ function actualizaColorTr() {
 function nivelarColumnas() {flex_2.style.height= columnCenter.offsetHeight+"px";; columnLeft.style.height= columnCenter.offsetHeight+"px";;}//offsetHeight CALCULA LA ALTURA DE columnCenter_articles
 
 function onload() { 
+  cargarSimbolos();//CARGA DE SIMBOLOS AL ABRIR LA PAGINA 
   resetar();nivelarColumnas();
   inicializarCard();
   startTimer();
@@ -4849,8 +4901,8 @@ fetch('https://api.binance.com/api/v3/ticker/price')
   } 
 */
 
-/*Custom-Select-Box-with-Search-master(1)---------------------------*/ 
-const selected = document.querySelector(".selected"),
+/*Custom-Select-Box-with-Search-master(1)--------------------------- EN REEMPLAZO DE 'LISTA DE OPCIONES 3' */ 
+let selected = document.querySelector(".selected"),
 SIMBOLO = document.getElementById("SIMBOLO"),
 optionsContainer = document.querySelector(".options-container"),
 opcionesXX = document.querySelector(".opcionesXX"),
@@ -4861,7 +4913,7 @@ SIMBOLO.addEventListener("click", () => {
   optionsContainer.classList.toggle("active");
   opciones.classList.toggle("active");
   searchBox.value = "";
-  filterList("");
+  opcionesXX.style.display='flex';buscado.style.display='none';
   if (optionsContainer.classList.contains("active")) {searchBox.focus();}
 });
 for (let i = 0; i < optionsList.length; i++) {//OJO: CAMBIAR forEach POR for , EN EXPLORADOR EDGE ANTIGUOS NO FUNCIONA 
@@ -4869,121 +4921,14 @@ for (let i = 0; i < optionsList.length; i++) {//OJO: CAMBIAR forEach POR for , E
   selected.innerHTML = optionsList[i].querySelector("label").innerHTML;//OJO: label ES UNA ETIQUETA, SI SE AGREGAN OTROS label CAMBIAR querySelector POR UN getElementsByName
   optionsContainer.classList.remove("active");
   }); 
-}
-BUSCADO.addEventListener("click", () => {  
-  if (buscado.textContent.substring(buscado.textContent.length-4)=='USDT') {
-    selected.innerText = buscado.textContent;//OJO: label ES UNA ETIQUETA, SI SE AGREGAN OTROS label CAMBIAR querySelector POR UN getElementsByName
-  optionsContainer.classList.remove("active");
-  }
-  }); 
-// optionsList.forEach(o => {//OJO: CAMBIAR forEach POR for , EN EXPLORADOR EDGE ANTIGUOS NO FUNCIONA 
-//   o.addEventListener("click", () => {
-//     selected.innerHTML = o.querySelector("label").innerHTML;
-//     optionsContainer.classList.remove("active");
-//   });
-// });
-searchBox.addEventListener("input", function(e) {
-  filterList(e.target.value);
-  let cadena=buscar.value.toUpperCase().replace(/ /g, '') , x='"'+cadena+'"' , s ='['+x+']';console.log('s ::::::: ',s);
-  
-  fetch('https://api.binance.com/api/v3/ticker/24hr?symbols='+s) 
-  .then( respuesta => respuesta.json() )
-  .then( datos => mostrarData(datos))
-  .catch( e => (buscar.value!='')? buscado.innerHTML=logo : buscado.innerHTML='')
-  const mostrarData = (data)=>{
-   for (let k = 0; k < data.length; k++) { 
-     if (cadena==data[k].symbol) {buscado.textContent=cadena;console.log('buscado.textContent ::::::: ',buscado.textContent);}
-    }
-  } 
-});
-
-const filterList = searchTerm => {
-  let a=[];
-  buscado.innerText='';
-  searchTerm = searchTerm.toLowerCase();
-  for (let i = 0; i < optionsList.length; i++) {//OJO: CAMBIAR forEach POR for , EN EXPLORADOR EDGE ANTIGUOS NO FUNCIONA 
-    let label = optionsList[i].firstElementChild.nextElementSibling.innerText.toLowerCase();
-    if (label.indexOf(searchTerm) != -1) {optionsList[i].style.display = "block"; a.push(0);} 
-    else {optionsList[i].style.display = "none"; a.push(1)}
-    /* //OJO: NO BORRAR ESTE CODIGO, SIRVE PARA CUANDO SE SUPRIMAN LAS OPCIONES 
-    let s = 0;
-    for (let i = 0; i < a.length; i++) {s += a[i];}//17 = a.length = optionsList.length     
-    if (s<optionsList.length) { 
-      buscado.innerText=''; //opcionesXX.style.display = "block";
-    } 
-    else {
-      buscado.innerText=buscar.value.toUpperCase(); //opcionesXX.style.display = "none";//console.log('s2 ............. ',s);
-    }
-    */
-  } 
-  // optionsList.forEach(option => {//OJO: CAMBIAR forEach POR for , EN EXPLORADOR EDGE ANTIGUOS NO FUNCIONA 
-  //   let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
-  //   if (label.indexOf(searchTerm) != -1) {
-  //     option.style.display = "block";
-  //   } else {
-  //     option.style.display = "none";
-  //   }
-  // });
-};
-
+} 
+palette.addEventListener("click", () => {
+  busqueda.classList.toggle("active");
+  formulario.value='';resultado.innerHTML='';
+}); 
 /*FIN DE: Custom-Select-Box-with-Search-master(1)---------------------------*/
-
-
-// https://www.youtube.com/watch?v=NduleX-AC74&t=910s /////////////////////////////////////////////////////////////////////////////
 /*
-const productos = [
-  {nombre: 'platano', valor: 500},
-  {nombre: 'pera', valor: 500},
-  {nombre: 'uva', valor: 500},
-  {nombre: 'melon', valor: 500},
-]
-const formulario = document.querySelector('#formulario');
-const boton = document.querySelector('#boton');
-const resultado = document.querySelector('#resultado');
-
-const filtrar = ()=>{
-  resultado.innerHTML = '';
-   const texto =formulario.value.toLowerCase();
-   for(let producto of productos){
-    let nombre = producto.nombre.toLowerCase();
-    if(nombre.indexOf(texto) !== -1){
-      resultado.innerHTML += `
-       <li>${producto.nombre} - Valor: ${producto.valor} </li>`
-    }
-   }
-   if (resultado.innerHTML === '') {
-    resultado.innerHTML += `
-     <li>Producto no encontrado... </li>`
-   }
-}
-
-formulario.addEventListener('keyup', filtrar);
-
-filtrar();
-*/
-
-const productos = [
-  'platano', 
-  'pera', 
-  'uva', 
-  'melon' 
-]
-let arrayS=/*;
-  fetch('https://api.binance.com/api/v3/ticker/price')
-  .then( respuesta => respuesta.json() )
-  .then( datos => mostrarData(datos))
-  .catch( e => console.log(e))
-  const mostrarData = (data)=>{
-   for (let k = 0; k < data.length; k++) { 
-    let s=data[k].symbol.substring(data[k].symbol.length - 4);
-    if (s=='USDT') {
-      arrayS.push(data[k].symbol);
-    }
-
-   }
-   console.log(arrayS);
-  } 
-*/
+let ARRAYPARUSDT=
   [
     "BTCUSDT",
     "ETHUSDT",
@@ -5517,48 +5462,101 @@ let arrayS=/*;
     "USUALUSDT",
     "t"
 ];
+*/
 
-let index='', divs=0;
-const formulario = document.querySelector('#formulario');
-const boton = document.querySelector('#boton');
-const resultado = document.querySelector('#resultado');
+let index0='';
+let formulario = document.querySelector('#formulario');
+let resultado = document.querySelector('#resultado');
  
-const filtrar = ()=>{
+const filtrar0 = ()=>{
   if (formulario.value == '') {
     resultado.innerHTML = '';
   }else{
     resultado.innerHTML = '';
     const texto =formulario.value.toLowerCase();
-    for(let i = 0; i < arrayS.length; i++){
-     let nombre = arrayS[i].toLowerCase();
+    for(let i = 0; i < ARRAYPARUSDT.length; i++){
+     let nombre = ARRAYPARUSDT[i].toLowerCase();
      if(nombre.indexOf(texto) !== -1){
-      index=i; console.log('mmm......',index);
+      index0=i; //console.log('mmm......',index);
+      let r=ARRAYPARUSDT[index0].toLowerCase().replace(texto, `<span class='coincidirTex0'>${texto}</span>`); //console.log('r...',r);
        resultado.innerHTML += `
-        <div name="option0" class="option0" onclick="insertar(${index})">${arrayS[index]}</div>
+        <div name="option0" class="option0" onclick="insertar0(${index0})">${r}</div>
         ` 
      }
     }
-    //for (let i = 0; i < document.getElementsByName('option0').length; i++) {
-    //  contar.innerText=' '+ document.getElementsByName('option0').length;
-    //}
   }
-   //if (formulario.value == '') {
-   // resultado.innerHTML = '';
-   //}
-   
-   //if (resultado.innerHTML === '') {
-   // resultado.innerHTML = `
-   //  <div>Producto no encontrado... </div>`
-   //}
 }
-function insertar(index) {
-  simbolo.innerHTML=arrayS[index]; console.log('arrayS[index].textContent......',arrayS[index]);
-
+function insertar0(index) {
+  simbolo.innerHTML=ARRAYPARUSDT[index]; console.log('ARRAYPARUSDT[index].textContent......',ARRAYPARUSDT[index]);
  }
+formulario.addEventListener('input', filtrar0);
+
+let index='';
+ 
+const filtrar = ()=>{
+  if (searchBox.value == '') {
+    buscado.innerHTML = '';opcionesXX.style.display='block';
+  }else{
+    buscado.innerHTML = '';
+    const texto =searchBox.value.toLowerCase();//* toUpperCase
+    for(let i = 0; i < ARRAYPARUSDT.length; i++){
+     let nombre = ARRAYPARUSDT[i].toLowerCase();
+     if(nombre.indexOf(texto) !== -1){
+      index=i; //console.log('index......',index);
+      let r=ARRAYPARUSDT[index].toLowerCase().replace(texto, `<span class='coincidirTex'>${texto}</span>`);//console.log('r...',r);
+       buscado.innerHTML += `
+        <div name="option0" class="option0" onclick="insertar(${index})">${r}</div>
+        ` 
+        opcionesXX.style.display='none';buscado.style.display='block';
+     }
+    }
+  }
+} 
+function insertar(index) {
+  simbolo.innerHTML=ARRAYPARUSDT[index]; //console.log('ARRAYPARUSDT[index].textContent......',ARRAYPARUSDT[index]);
+  optionsContainer.classList.toggle("active");buscado.style.display='none';opcionesXX.style.display='block';
+}
+searchBox.addEventListener('input', filtrar);
+
+
+// https://www.youtube.com/watch?v=NduleX-AC74&t=910s /////////////////////////////////////////////////////////////////////////////
+/*
+const productos = [
+  'platano', 
+  'pera', 
+  'uva', 
+  'melon' 
+]
+const productos = [
+  {nombre: 'platano', valor: 500},
+  {nombre: 'pera', valor: 500},
+  {nombre: 'uva', valor: 500},
+  {nombre: 'melon', valor: 500},
+]
+const formulario = document.querySelector('#formulario');
+const boton = document.querySelector('#boton');
+const resultado = document.querySelector('#resultado');
+
+const filtrar = ()=>{
+  resultado.innerHTML = '';
+   const texto =formulario.value.toLowerCase();
+   for(let producto of productos){
+    let nombre = producto.nombre.toLowerCase();
+    if(nombre.indexOf(texto) !== -1){
+      resultado.innerHTML += `
+       <li>${producto.nombre} - Valor: ${producto.valor} </li>`
+    }
+   }
+   if (resultado.innerHTML === '') {
+    resultado.innerHTML += `
+     <li>Producto no encontrado... </li>`
+   }
+}
+
 formulario.addEventListener('keyup', filtrar);
 
-
-
+filtrar();
+*/
 
 
 ////################ decimal.js #########################
