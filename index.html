@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="style.css" /><link rel="stylesheet" href="css/CF[2024]-2b.css" /> -->
-    <title>CCFF[2024]-2g-paratelefono</title>
+    <title>CF[2024]-2g-paratelefono</title>
 
     <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
@@ -329,7 +329,7 @@ z-index: 10;
  @media screen and  (max-width: 960px) { .main_flex{grid-template-columns:  1fr ;} }*/
  @media screen and (max-width: 320px) {.main_flex {padding: 0.25rem  0.25rem 0  0.25rem;}}
 
- .flex_1{background: #006915;
+ .flex_1{background: #00691500;
     display: flex;justify-content: center;margin-bottom: 1.5rem; height: 525px; 
  }
 
@@ -1218,8 +1218,8 @@ box-shadow: var(--box-shadow1) ;
 /*Custom-Select-Box-with-Search-master(1)-----------------------------------*/
 .busqueda{display: none;}
 .busqueda.active{display: block;}
-#formulario{background: var(--bg-color);color: var(--text-color);width: 100%;padding: 0.25rem 0.75rem;margin: 0.5rem 0 0 0; border: 1px solid var(--text-color);font-size: var(--font-size1); border-radius: var(--border-radius); box-shadow: var(--box-shadow1);}
-#resultado{max-height: 200px;overflow: auto;background: #4b0b0b00;margin: 0.25rem 0.5rem;padding: 0rem 0;;}
+#formulario{background: var(--bg-color);color: var(--text-color);width: 100%;padding: 0.5rem 0.75rem;margin: 0.5rem 0 0 0; border: 1px solid var(--text-color);font-size: var(--font-size1); border-radius: var(--border-radius_tex); box-shadow: var(--box-shadow1);}
+#resultado{max-height: 150px;overflow: auto;background: #4b0b0b00;margin: 0.25rem 0.5rem;padding: 0rem 0;;}
 #resultado::-webkit-scrollbar{width: 10px;height: 10px;background: var(--bg-card-color);}
 #resultado::-webkit-scrollbar-track{      background: rgb(124, 124, 124);;border-radius: 5px;}
 #resultado::-webkit-scrollbar-thumb{      background: rgb( 78,   78, 78);border-radius: 5px;}
@@ -1260,9 +1260,11 @@ box-shadow: var(--box-shadow1) ;
       .select-box{width: var(--width_LO1);height: var(--height_LO3);}
     }
   .BUSCADO{background: var(--bg-card-color); background: rgba(104, 139, 1, 0);
-    margin: 0.25rem 0.25rem  0.25rem  0rem;padding: 0.25rem 0; display: flex;justify-content: start;align-items: center;
+    margin: 0.25rem 0.25rem  0.25rem  0rem;padding: 0rem 0; display: flex;justify-content: start;align-items: center;flex-direction: column;
   }
-  #buscado{background: rgba(63, 0, 122, 0);padding: 0 0.25rem;color: var(--text-color); overflow: auto; 
+  #buscado0{background: #37000000;width: 100%;padding: 0 0rem;;}
+  #coincidencias0 , #coincidencias{background: #00089e00;padding: 0.25rem 0.5rem; font-size: var(--font-size5);color:#bf5115;opacity: 1;}
+  #buscado{background: rgba(63, 0, 122, 0);color: var(--text-color); overflow: auto; 
     display: block;
     max-height: 200px;width: 100%;
   }
@@ -1400,15 +1402,14 @@ box-shadow: var(--box-shadow1) ;
   }
 /*FIN DE: Custom-Select-Box-with-Search-master(1)---------------------------*/
 
-.option0{background: var(--bg-card-color);padding: 0.25rem 0.5rem;margin: 0rem 0rem 0rem 0rem;background: #00691500;
+.option0{background: var(--bg-card-color);padding: 0.25rem 0.5rem;margin: 0rem 0.25rem 0rem 0.25rem;background: #00691500;
   font-size: var(--font-size1);font-family: var(--font-family1);font-weight: var(--font-weight1);
   text-transform:uppercase;
 }
 .option0:hover{background: var(--bg-color);border: 1px solid var(--border-color);
   cursor: pointer; transition: .4s ease all;}
 
-.coincidirTex , .coincidirTex0{color: #bf5115;}
-
+.coincidirTex , .coincidirTex0{color: #bf5115;opacity: 1;}
     </style>
 
   </head>
@@ -1476,8 +1477,9 @@ box-shadow: var(--box-shadow1) ;
     
     <div class="container_flex_2">
       <div class="busqueda" id="busqueda">
+        <div id="coincidencias0"></div>
         <div style="background: #00000000; display: flex;justify-content: center;align-items: center;padding: 0 0.5rem;">
-         <input type="text" id="formulario" placeholder="Buscar" >
+         <input type="text" id="formulario" placeholder="Buscar..." >
         </div>
         <div id="resultado" >
         </div>
@@ -1722,10 +1724,13 @@ box-shadow: var(--box-shadow1) ;
                     <div class="select-box"> 
 
                      <div class="options-container" id="options-container">
-                       <div class="search-box" ><input type="text" id="buscar" placeholder="Buscar" /></div>
+                       <div class="search-box" ><input type="text" id="buscar" placeholder="Buscar..." /></div>
                        <div>
                          <div class="BUSCADO" id="BUSCADO">
+                           <div id="buscado0">
+                           <div id="coincidencias">0</div>
                            <div id="buscado"></div>
+                          </div>
                          </div>
                          <div class="opcionesXX" id="opcionesXX">
                            <div class="option" name="option"><input type="radio" class="radio"/><label name="label">AVAXUSDT</label></div>
@@ -3013,6 +3018,7 @@ let TEX= ['(Avalanche)','(BNB)','(Bitcoin)','(Dogecoin)','(Ethereum)','(Solana)'
 //ADEMAS AGREGARLA EN: function cardPrice24hr(){} , function data(){} , function inicializarCard(){} , function actualizaTablaDinamica(n,s){} , function imagenesSVG(){} Y EN: CF[2024]-2d.html ⭢ <div class="opciones0" id="opciones03">       
 //FIN DE: CUANDO SE AGREGA UNA NUEVA MONEDA, SE DEBEN DE AGREGAR AQUÍ 
 let simboloUpperCase='',simboloLowerCase='', ARRAYPARUSDT=[]; 
+let resultado00 ;
 
 function cargarSimbolos() {//CARGA DE SIMBOLOS AL ABRIR LA PAGINA 
   fetch('https://api.binance.com/api/v3/ticker/price')
@@ -3026,7 +3032,9 @@ function cargarSimbolos() {//CARGA DE SIMBOLOS AL ABRIR LA PAGINA
       ARRAYPARUSDT.push(data[k].symbol);
     }
    }
-   //console.log(ARRAYPARUSDT ,ARRAYPARUSDT.length);
+   //cargarSimbolo.innerText=ARRAYPARUSDT;    
+   //console.log('ARRAYPARUSDT---------',ARRAYPARUSDT);
+   resultado00 = ARRAYPARUSDT.map(function(elemento,index){return {name: elemento, index: index};});
   } 
 }
 
@@ -4911,9 +4919,9 @@ optionsList = document.getElementsByName("option");
 
 SIMBOLO.addEventListener("click", () => { 
   optionsContainer.classList.toggle("active");
-  opciones.classList.toggle("active");
+  opcionesXX.classList.toggle("active");
   searchBox.value = "";
-  opcionesXX.style.display='flex';buscado.style.display='none';
+  opcionesXX.style.display='flex';buscado0.style.display='none';
   if (optionsContainer.classList.contains("active")) {searchBox.focus();}
 });
 for (let i = 0; i < optionsList.length; i++) {//OJO: CAMBIAR forEach POR for , EN EXPLORADOR EDGE ANTIGUOS NO FUNCIONA 
@@ -4925,544 +4933,9 @@ for (let i = 0; i < optionsList.length; i++) {//OJO: CAMBIAR forEach POR for , E
 palette.addEventListener("click", () => {
   busqueda.classList.toggle("active");
   formulario.value='';resultado.innerHTML='';
+  if (busqueda.classList.contains("active")) {formulario.focus();}
 }); 
 /*FIN DE: Custom-Select-Box-with-Search-master(1)---------------------------*/
-/*
-let ARRAYPARUSDT=
-  [
-    "BTCUSDT",
-    "ETHUSDT",
-    "BNBUSDT",
-    "BCCUSDT",
-    "NEOUSDT",
-    "LTCUSDT",
-    "QTUMUSDT",
-    "ADAUSDT",
-    "XRPUSDT",
-    "EOSUSDT",
-    "TUSDUSDT",
-    "IOTAUSDT",
-    "XLMUSDT",
-    "ONTUSDT",
-    "TRXUSDT",
-    "ETCUSDT",
-    "ICXUSDT",
-    "VENUSDT",
-    "NULSUSDT",
-    "VETUSDT",
-    "PAXUSDT",
-    "BCHABCUSDT",
-    "BCHSVUSDT",
-    "USDCUSDT",
-    "LINKUSDT",
-    "WAVESUSDT",
-    "BTTUSDT",
-    "USDSUSDT",
-    "ONGUSDT",
-    "HOTUSDT",
-    "ZILUSDT",
-    "ZRXUSDT",
-    "FETUSDT",
-    "BATUSDT",
-    "XMRUSDT",
-    "ZECUSDT",
-    "IOSTUSDT",
-    "CELRUSDT",
-    "DASHUSDT",
-    "NANOUSDT",
-    "OMGUSDT",
-    "THETAUSDT",
-    "ENJUSDT",
-    "MITHUSDT",
-    "MATICUSDT",
-    "ATOMUSDT",
-    "TFUELUSDT",
-    "ONEUSDT",
-    "FTMUSDT",
-    "ALGOUSDT",
-    "USDSBUSDT",
-    "GTOUSDT",
-    "ERDUSDT",
-    "DOGEUSDT",
-    "DUSKUSDT",
-    "ANKRUSDT",
-    "WINUSDT",
-    "COSUSDT",
-    "NPXSUSDT",
-    "COCOSUSDT",
-    "MTLUSDT",
-    "TOMOUSDT",
-    "PERLUSDT",
-    "DENTUSDT",
-    "MFTUSDT",
-    "KEYUSDT",
-    "STORMUSDT",
-    "DOCKUSDT",
-    "WANUSDT",
-    "FUNUSDT",
-    "CVCUSDT",
-    "CHZUSDT",
-    "BANDUSDT",
-    "BUSDUSDT",
-    "BEAMUSDT",
-    "XTZUSDT",
-    "RENUSDT",
-    "RVNUSDT",
-    "HCUSDT",
-    "HBARUSDT",
-    "NKNUSDT",
-    "STXUSDT",
-    "KAVAUSDT",
-    "ARPAUSDT",
-    "IOTXUSDT",
-    "RLCUSDT",
-    "MCOUSDT",
-    "CTXCUSDT",
-    "BCHUSDT",
-    "TROYUSDT",
-    "VITEUSDT",
-    "FTTUSDT",
-    "EURUSDT",
-    "OGNUSDT",
-    "DREPUSDT",
-    "BULLUSDT",
-    "BEARUSDT",
-    "ETHBULLUSDT",
-    "ETHBEARUSDT",
-    "TCTUSDT",
-    "WRXUSDT",
-    "BTSUSDT",
-    "LSKUSDT",
-    "BNTUSDT",
-    "LTOUSDT",
-    "EOSBULLUSDT",
-    "EOSBEARUSDT",
-    "XRPBULLUSDT",
-    "XRPBEARUSDT",
-    "STRATUSDT",
-    "AIONUSDT",
-    "MBLUSDT",
-    "COTIUSDT",
-    "BNBBULLUSDT",
-    "BNBBEARUSDT",
-    "STPTUSDT",
-    "WTCUSDT",
-    "DATAUSDT",
-    "XZCUSDT",
-    "SOLUSDT",
-    "CTSIUSDT",
-    "HIVEUSDT",
-    "CHRUSDT",
-    "BTCUPUSDT",
-    "BTCDOWNUSDT",
-    "GXSUSDT",
-    "ARDRUSDT",
-    "LENDUSDT",
-    "MDTUSDT",
-    "STMXUSDT",
-    "KNCUSDT",
-    "REPUSDT",
-    "LRCUSDT",
-    "PNTUSDT",
-    "COMPUSDT",
-    "BKRWUSDT",
-    "SCUSDT",
-    "ZENUSDT",
-    "SNXUSDT",
-    "ETHUPUSDT",
-    "ETHDOWNUSDT",
-    "ADAUPUSDT",
-    "ADADOWNUSDT",
-    "LINKUPUSDT",
-    "LINKDOWNUSDT",
-    "VTHOUSDT",
-    "DGBUSDT",
-    "GBPUSDT",
-    "SXPUSDT",
-    "MKRUSDT",
-    "DAIUSDT",
-    "DCRUSDT",
-    "STORJUSDT",
-    "BNBUPUSDT",
-    "BNBDOWNUSDT",
-    "XTZUPUSDT",
-    "XTZDOWNUSDT",
-    "MANAUSDT",
-    "AUDUSDT",
-    "YFIUSDT",
-    "BALUSDT",
-    "BLZUSDT",
-    "IRISUSDT",
-    "KMDUSDT",
-    "JSTUSDT",
-    "SRMUSDT",
-    "ANTUSDT",
-    "CRVUSDT",
-    "SANDUSDT",
-    "OCEANUSDT",
-    "NMRUSDT",
-    "DOTUSDT",
-    "LUNAUSDT",
-    "RSRUSDT",
-    "PAXGUSDT",
-    "WNXMUSDT",
-    "TRBUSDT",
-    "BZRXUSDT",
-    "SUSHIUSDT",
-    "YFIIUSDT",
-    "KSMUSDT",
-    "EGLDUSDT",
-    "DIAUSDT",
-    "RUNEUSDT",
-    "FIOUSDT",
-    "UMAUSDT",
-    "EOSUPUSDT",
-    "EOSDOWNUSDT",
-    "TRXUPUSDT",
-    "TRXDOWNUSDT",
-    "XRPUPUSDT",
-    "XRPDOWNUSDT",
-    "DOTUPUSDT",
-    "DOTDOWNUSDT",
-    "BELUSDT",
-    "WINGUSDT",
-    "LTCUPUSDT",
-    "LTCDOWNUSDT",
-    "UNIUSDT",
-    "NBSUSDT",
-    "OXTUSDT",
-    "SUNUSDT",
-    "AVAXUSDT",
-    "HNTUSDT",
-    "FLMUSDT",
-    "UNIUPUSDT",
-    "UNIDOWNUSDT",
-    "ORNUSDT",
-    "UTKUSDT",
-    "XVSUSDT",
-    "ALPHAUSDT",
-    "AAVEUSDT",
-    "NEARUSDT",
-    "SXPUPUSDT",
-    "SXPDOWNUSDT",
-    "FILUSDT",
-    "FILUPUSDT",
-    "FILDOWNUSDT",
-    "YFIUPUSDT",
-    "YFIDOWNUSDT",
-    "INJUSDT",
-    "AUDIOUSDT",
-    "CTKUSDT",
-    "BCHUPUSDT",
-    "BCHDOWNUSDT",
-    "AKROUSDT",
-    "AXSUSDT",
-    "HARDUSDT",
-    "DNTUSDT",
-    "STRAXUSDT",
-    "UNFIUSDT",
-    "ROSEUSDT",
-    "AVAUSDT",
-    "XEMUSDT",
-    "AAVEUPUSDT",
-    "AAVEDOWNUSDT",
-    "SKLUSDT",
-    "SUSDUSDT",
-    "SUSHIUPUSDT",
-    "SUSHIDOWNUSDT",
-    "XLMUPUSDT",
-    "XLMDOWNUSDT",
-    "GRTUSDT",
-    "JUVUSDT",
-    "PSGUSDT",
-    "1INCHUSDT",
-    "REEFUSDT",
-    "OGUSDT",
-    "ATMUSDT",
-    "ASRUSDT",
-    "CELOUSDT",
-    "RIFUSDT",
-    "BTCSTUSDT",
-    "TRUUSDT",
-    "CKBUSDT",
-    "TWTUSDT",
-    "FIROUSDT",
-    "LITUSDT",
-    "SFPUSDT",
-    "DODOUSDT",
-    "CAKEUSDT",
-    "ACMUSDT",
-    "BADGERUSDT",
-    "FISUSDT",
-    "OMUSDT",
-    "PONDUSDT",
-    "DEGOUSDT",
-    "ALICEUSDT",
-    "LINAUSDT",
-    "PERPUSDT",
-    "RAMPUSDT",
-    "SUPERUSDT",
-    "CFXUSDT",
-    "EPSUSDT",
-    "AUTOUSDT",
-    "TKOUSDT",
-    "PUNDIXUSDT",
-    "TLMUSDT",
-    "1INCHUPUSDT",
-    "1INCHDOWNUSDT",
-    "BTGUSDT",
-    "MIRUSDT",
-    "BARUSDT",
-    "FORTHUSDT",
-    "BAKEUSDT",
-    "BURGERUSDT",
-    "SLPUSDT",
-    "SHIBUSDT",
-    "ICPUSDT",
-    "ARUSDT",
-    "POLSUSDT",
-    "MDXUSDT",
-    "MASKUSDT",
-    "LPTUSDT",
-    "NUUSDT",
-    "XVGUSDT",
-    "ATAUSDT",
-    "GTCUSDT",
-    "TORNUSDT",
-    "KEEPUSDT",
-    "ERNUSDT",
-    "KLAYUSDT",
-    "PHAUSDT",
-    "BONDUSDT",
-    "MLNUSDT",
-    "DEXEUSDT",
-    "C98USDT",
-    "CLVUSDT",
-    "QNTUSDT",
-    "FLOWUSDT",
-    "TVKUSDT",
-    "MINAUSDT",
-    "RAYUSDT",
-    "FARMUSDT",
-    "ALPACAUSDT",
-    "QUICKUSDT",
-    "MBOXUSDT",
-    "FORUSDT",
-    "REQUSDT",
-    "GHSTUSDT",
-    "WAXPUSDT",
-    "TRIBEUSDT",
-    "GNOUSDT",
-    "XECUSDT",
-    "ELFUSDT",
-    "DYDXUSDT",
-    "POLYUSDT",
-    "IDEXUSDT",
-    "VIDTUSDT",
-    "USDPUSDT",
-    "GALAUSDT",
-    "ILVUSDT",
-    "YGGUSDT",
-    "SYSUSDT",
-    "DFUSDT",
-    "FIDAUSDT",
-    "FRONTUSDT",
-    "CVPUSDT",
-    "AGLDUSDT",
-    "RADUSDT",
-    "BETAUSDT",
-    "RAREUSDT",
-    "LAZIOUSDT",
-    "CHESSUSDT",
-    "ADXUSDT",
-    "AUCTIONUSDT",
-    "DARUSDT",
-    "BNXUSDT",
-    "RGTUSDT",
-    "MOVRUSDT",
-    "CITYUSDT",
-    "ENSUSDT",
-    "KP3RUSDT",
-    "QIUSDT",
-    "PORTOUSDT",
-    "POWRUSDT",
-    "VGXUSDT",
-    "JASMYUSDT",
-    "AMPUSDT",
-    "PLAUSDT",
-    "PYRUSDT",
-    "RNDRUSDT",
-    "ALCXUSDT",
-    "SANTOSUSDT",
-    "MCUSDT",
-    "ANYUSDT",
-    "BICOUSDT",
-    "FLUXUSDT",
-    "FXSUSDT",
-    "VOXELUSDT",
-    "HIGHUSDT",
-    "CVXUSDT",
-    "PEOPLEUSDT",
-    "OOKIUSDT",
-    "SPELLUSDT",
-    "USTUSDT",
-    "JOEUSDT",
-    "ACHUSDT",
-    "IMXUSDT",
-    "GLMRUSDT",
-    "LOKAUSDT",
-    "SCRTUSDT",
-    "API3USDT",
-    "BTTCUSDT",
-    "ACAUSDT",
-    "ANCUSDT",
-    "XNOUSDT",
-    "WOOUSDT",
-    "ALPINEUSDT",
-    "TUSDT",
-    "ASTRUSDT",
-    "NBTUSDT",
-    "GMTUSDT",
-    "KDAUSDT",
-    "APEUSDT",
-    "BSWUSDT",
-    "BIFIUSDT",
-    "MULTIUSDT",
-    "STEEMUSDT",
-    "MOBUSDT",
-    "NEXOUSDT",
-    "REIUSDT",
-    "GALUSDT",
-    "LDOUSDT",
-    "EPXUSDT",
-    "OPUSDT",
-    "LEVERUSDT",
-    "STGUSDT",
-    "LUNCUSDT",
-    "GMXUSDT",
-    "NEBLUSDT",
-    "POLYXUSDT",
-    "APTUSDT",
-    "OSMOUSDT",
-    "HFTUSDT",
-    "PHBUSDT",
-    "HOOKUSDT",
-    "MAGICUSDT",
-    "HIFIUSDT",
-    "RPLUSDT",
-    "PROSUSDT",
-    "AGIXUSDT",
-    "GNSUSDT",
-    "SYNUSDT",
-    "VIBUSDT",
-    "SSVUSDT",
-    "LQTYUSDT",
-    "AMBUSDT",
-    "BETHUSDT",
-    "USTCUSDT",
-    "GASUSDT",
-    "GLMUSDT",
-    "PROMUSDT",
-    "QKCUSDT",
-    "UFTUSDT",
-    "IDUSDT",
-    "ARBUSDT",
-    "LOOMUSDT",
-    "OAXUSDT",
-    "RDNTUSDT",
-    "WBTCUSDT",
-    "EDUUSDT",
-    "SUIUSDT",
-    "AERGOUSDT",
-    "PEPEUSDT",
-    "FLOKIUSDT",
-    "ASTUSDT",
-    "SNTUSDT",
-    "COMBOUSDT",
-    "MAVUSDT",
-    "PENDLEUSDT",
-    "ARKMUSDT",
-    "WBETHUSDT",
-    "WLDUSDT",
-    "FDUSDUSDT",
-    "SEIUSDT",
-    "CYBERUSDT",
-    "ARKUSDT",
-    "CREAMUSDT",
-    "GFTUSDT",
-    "IQUSDT",
-    "NTRNUSDT",
-    "TIAUSDT",
-    "MEMEUSDT",
-    "ORDIUSDT",
-    "BEAMXUSDT",
-    "PIVXUSDT",
-    "VICUSDT",
-    "BLURUSDT",
-    "VANRYUSDT",
-    "AEURUSDT",
-    "JTOUSDT",
-    "1000SATSUSDT",
-    "BONKUSDT",
-    "ACEUSDT",
-    "NFPUSDT",
-    "AIUSDT",
-    "XAIUSDT",
-    "MANTAUSDT",
-    "ALTUSDT",
-    "JUPUSDT",
-    "PYTHUSDT",
-    "RONINUSDT",
-    "DYMUSDT",
-    "PIXELUSDT",
-    "STRKUSDT",
-    "PORTALUSDT",
-    "PDAUSDT",
-    "AXLUSDT",
-    "WIFUSDT",
-    "METISUSDT",
-    "AEVOUSDT",
-    "BOMEUSDT",
-    "ETHFIUSDT",
-    "ENAUSDT",
-    "WUSDT",
-    "TNSRUSDT",
-    "SAGAUSDT",
-    "TAOUSDT",
-    "OMNIUSDT",
-    "REZUSDT",
-    "BBUSDT",
-    "NOTUSDT",
-    "IOUSDT",
-    "ZKUSDT",
-    "LISTAUSDT",
-    "ZROUSDT",
-    "GUSDT",
-    "BANANAUSDT",
-    "RENDERUSDT",
-    "TONUSDT",
-    "DOGSUSDT",
-    "EURIUSDT",
-    "SLFUSDT",
-    "POLUSDT",
-    "NEIROUSDT",
-    "TURBOUSDT",
-    "1MBABYDOGEUSDT",
-    "CATIUSDT",
-    "HMSTRUSDT",
-    "EIGENUSDT",
-    "SCRUSDT",
-    "BNSOLUSDT",
-    "LUMIAUSDT",
-    "KAIAUSDT",
-    "COWUSDT",
-    "CETUSUSDT",
-    "PNUTUSDT",
-    "ACTUSDT",
-    "USUALUSDT",
-    "t"
-];
-*/
 
 let index0='';
 let formulario = document.querySelector('#formulario');
@@ -5473,17 +4946,16 @@ const filtrar0 = ()=>{
     resultado.innerHTML = '';
   }else{
     resultado.innerHTML = '';
-    const texto =formulario.value.toLowerCase();
-    for(let i = 0; i < ARRAYPARUSDT.length; i++){
-     let nombre = ARRAYPARUSDT[i].toLowerCase();
-     if(nombre.indexOf(texto) !== -1){
-      index0=i; //console.log('mmm......',index);
-      let r=ARRAYPARUSDT[index0].toLowerCase().replace(texto, `<span class='coincidirTex0'>${texto}</span>`); //console.log('r...',r);
-       resultado.innerHTML += `
-        <div name="option0" class="option0" onclick="insertar0(${index0})">${r}</div>
-        ` 
-     }
-    }
+    let texto0=formulario.value.toLowerCase();
+    let filteredCountries = resultado00.filter((country) => country.name.toLowerCase().includes(texto0));//USAR: startsWith() PARA coincir primeras letras , endsWith() PARA coincir ultimas letras , y includes() determina si una cadena de texto puede ser encontrada dentro de otra cadena de texto
+    coincidencias0.innerHTML='Coincidencias: ' + filteredCountries.length;
+    filteredCountries.forEach((country) => {//USAR createElement PARA UNA MAYOR RAPIDEZ 
+      let r=country.name.toLowerCase().replace(texto0, `<span class='coincidirTex'>${texto0}</span>`);//console.log('r...',r);
+      let div = document.createElement("div");
+      div.setAttribute('name','option0');div.setAttribute('class','option0');div.setAttribute('onclick',`insertar0(${country.index})`);
+      div.innerHTML = r;
+      resultado.appendChild(div);
+    });
   }
 }
 function insertar0(index) {
@@ -5492,10 +4964,9 @@ function insertar0(index) {
 formulario.addEventListener('input', filtrar0);
 
 let index='';
- 
 const filtrar = ()=>{
   if (searchBox.value == '') {
-    buscado.innerHTML = '';opcionesXX.style.display='block';
+    buscado.innerHTML = '';opcionesXX.style.display='block';coincidencias.innerText='';
   }else{
     buscado.innerHTML = '';
     const texto =searchBox.value.toLowerCase();//* toUpperCase
@@ -5504,17 +4975,19 @@ const filtrar = ()=>{
      if(nombre.indexOf(texto) !== -1){
       index=i; //console.log('index......',index);
       let r=ARRAYPARUSDT[index].toLowerCase().replace(texto, `<span class='coincidirTex'>${texto}</span>`);//console.log('r...',r);
-       buscado.innerHTML += `
-        <div name="option0" class="option0" onclick="insertar(${index})">${r}</div>
-        ` 
-        opcionesXX.style.display='none';buscado.style.display='block';
+      let div = document.createElement("div");//USAR createElement PARA UNA MAYOR RAPIDEZ 
+      div.setAttribute('name','option0');div.setAttribute('class','option0');div.setAttribute('onclick',`insertar(${index})`);
+      div.innerHTML = r;
+      buscado.appendChild(div);
+      coincidencias.innerText='Total encontrado: '+ buscado.children.length; //console.log('buscado.children.length......',buscado.children.length);
+      opcionesXX.style.display='none';buscado0.style.display='block';
      }
     }
   }
 } 
 function insertar(index) {
   simbolo.innerHTML=ARRAYPARUSDT[index]; //console.log('ARRAYPARUSDT[index].textContent......',ARRAYPARUSDT[index]);
-  optionsContainer.classList.toggle("active");buscado.style.display='none';opcionesXX.style.display='block';
+  optionsContainer.classList.toggle("active");buscado0.style.display='none';opcionesXX.style.display='block';
 }
 searchBox.addEventListener('input', filtrar);
 
@@ -5557,6 +5030,7 @@ formulario.addEventListener('keyup', filtrar);
 
 filtrar();
 */
+
 
 
 
