@@ -83,9 +83,9 @@ body{
 .container_flex_1{
     position: relative;
     width: 100%;height: 40px; 
-    display: flex;justify-content: center;flex-direction: row;
+    display: flex;justify-content: center;flex-direction: column;
     background-color: var(--bg-color);
-    z-index: 20;
+    z-index: 2000;
 }
 @media screen and  (max-width: 960px) {.container_flex_1{position: fixed;top: 0; height: 40px; }} 
 
@@ -96,31 +96,54 @@ body{
     padding: 0px; 
     background-color: var(--bg-color);
 }
-@media screen and  (max-width: 960px) {.container_flex_2{top: 40px; z-index: 10;}} 
+@media screen and  (max-width: 960px) {.container_flex_2{top: 50px; z-index: 10;}} 
 
 .header1{
     position: relative;
-    width: 100%; height: 40px; 
+    width: 100%; height: 40px;top: 25px;
     display: flex;justify-content:space-between;
     padding: 0;margin: 0;
     background-color: var(--bg-card-color);
     box-shadow: var(--box-shadow1);
 }
 
-.switches{ display: flex;flex-direction: row;justify-content: start;align-items: center;}
+.switches{display: flex;flex-direction: row;justify-content: start;align-items: center;}
+.svgSettings{display: flex;align-items: center;justify-content: center;padding: 0rem;margin: 0.5rem; background: #37000000;}
+.svgSettings:hover{
+  transition: 0.2s; /*2 ANIMAR p */
+  transform: scaleX(1.15) scaleY(1.15) translateX(0px) translateY(0px); /*1 ANIMAR p */
+  cursor: pointer;}
+.svgSettings svg{fill:var(--text-color);width: 25px;height: 25px;}
+@media screen and (max-width: 320px) {svgSettings svg{width: 15px;height: 15px;}}
 
-.nav-toggle {
+.toggleColors{position: relative;;right: -100%;padding: 0rem;     top:26px;
+  width: 100%;display: flex;align-items: center;justify-content: end;
+  
+transition: var(--transition);
+transition: right 0.3s;
+z-index: -10;
+}
+.toggleColors.active{right: 0%;}
+
+.toggleColors1{
+  padding: 5px;margin: 0;;display: flex;justify-content: center;align-items:center;
+  backdrop-filter: blur(2px);background-color: rgba(10, 0, 22, 0.5); 
+}
+
+.nav-toggle {background: #00691500;
     position: relative;
-    height: 40px;
     display: flex;justify-content: center;align-items: center;
     padding: 0px;margin-left: 10px;
 }
-.nav-toggle svg{
+
+
+.nav-toggle svg{background: #74028600; height: 40px;width: 40px;
     display: none;
     fill: var(--text-color);
     cursor: pointer;
 }
-@media screen and  (max-width: 960px) {.nav-toggle svg{display: inline;}}
+
+@media screen and  (max-width: 960px) {.nav-toggle svg{height: 30px;width: 30px;display: inline;}}
 
 .nav-toggle svg:hover {
   transition: 0.2s; /*2 ANIMAR p */
@@ -137,13 +160,18 @@ body{
 
 .title p{padding: 0;margin: 0; }
 
-.title2{font-size: var(--font-size2);}
+.title2{font-size: var(--font-size2);display: none;}
 @media screen and  (max-width: 460px) {.title2{font-size: var(--font-size1);}}
 
-.colors{
+.title0{font-size: var(--font-size2); color: var(--text-color);;font-family: var(--font-family2);
+  display: none;justify-content: center;align-items:center;}
+  @media screen and  (max-width: 960px) {.title0 {display: flex;font-size: var(--font-size2);}}
+  @media screen and  (max-width: 320px) {.title0 {display: flex;font-size: var(--font-size1);}}
+
+.colors{ background: var(--bg-color);
     display: flex;justify-content: space-between;flex-direction:row;align-items:center;
     width: 255px;
-    padding-right: 10px;
+    padding: 5px;
 }
 
 .colors__item{
@@ -321,13 +349,14 @@ z-index: 10;
     /* display: grid;
     grid-template-columns: 350px 1fr 350px;*/
     display: flex;justify-content: center;;flex-wrap: wrap;flex-direction: row;
-    background-color: var(--bg-color); 
+    background-color: var(--bg-color); background: #00691500;
     padding: 0.5rem  0.5rem 0  0.5rem;
  }
  @media screen and  (max-width: 1260px) { .main_flex{flex-direction: row;} }
+ @media screen and  (max-width: 960px) { .main_flex{margin:-0.5rem 0 ;} }
  /* @media screen and  (max-width: 1260px){ .main_flex{grid-template-columns: 350px 1fr ; } }
  @media screen and  (max-width: 960px) { .main_flex{grid-template-columns:  1fr ;} }*/
- @media screen and (max-width: 320px) {.main_flex {padding: 0.25rem  0.25rem 0  0.25rem;}}
+ @media screen and (max-width: 320px) {.main_flex {padding: 0rem  0.25rem  0rem  0.25rem;margin:-0.25rem 0 ;}}
 
  .flex_1{background: #00691500;
     display: flex;justify-content: center;margin-bottom: 1.5rem; height: 525px; 
@@ -1262,7 +1291,7 @@ box-shadow: var(--box-shadow1) ;
   .BUSCADO{background: var(--bg-card-color); background: rgba(104, 139, 1, 0);
     margin: 0.25rem 0.25rem  0.25rem  0rem;padding: 0rem 0; display: flex;justify-content: start;align-items: center;flex-direction: column;
   }
-  #buscado0{background: #37000000;width: 100%;padding: 0 0rem;;}
+  #buscadoX{background: #37000000;width: 100%;padding: 0 0rem;;}
   #coincidencias0 , #coincidencias{background: #00089e00;padding: 0.25rem 0.5rem; font-size: var(--font-size5);color:#bf5115;opacity: 1;}
   #buscado{background: rgba(63, 0, 122, 0);color: var(--text-color); overflow: auto; 
     display: block;
@@ -1285,20 +1314,19 @@ box-shadow: var(--box-shadow1) ;
   .opcionesXX::-webkit-scrollbar-thumb:hover{background: rgb( 55,   55, 55);}
   
   .select-box .options-container {    
-    background: #73010100; background: var(--bg-card-color); position: relative; top: -35px;
-    
+     background: var(--bg-card-color); position: relative; top: -50px;
     max-height: 0;
     width: 100%;
     opacity: 0;z-index: -100;
     transition: all 0.4s;
-    border-radius: 8px;
+    border-radius: var(--border-radius_tex);
     /*overflow: hidden;*/
     order: 1;
     box-shadow: var(--box-shadow1) ;
   }
 
   .SIMBOLO{background: var(--bg-card-color);
-    display: flex;justify-content: space-between;align-items: center;border-radius: 8px;
+    display: flex;justify-content: space-between;align-items: center;border-radius: var(--border-radius_tex);
     position: relative;z-index: 100;
     cursor: pointer;
   }
@@ -1308,12 +1336,10 @@ box-shadow: var(--box-shadow1) ;
   @media screen and  (max-width: 460px) {
     .SIMBOLO{width: var(--width_LO1);height: var(--height_LO3);}
   }
-  .selected { background: #6b006b00;
-    border-radius: 8px;
+  .selected {padding: 0 0 0 0.5rem; 
     display: flex;justify-content: center;align-items: center;
     color:  var(--text-color);
     font-size: var(--font-size1);font-family: var(--font-family1);font-weight: var(--font-weight1);
-    padding: 0 0rem 0.125rem 0.5rem;
   }
   @media screen and  (max-width: 460px) {
     .selected{font-size: var(--font-size4);}
@@ -1334,7 +1360,7 @@ box-shadow: var(--box-shadow1) ;
       fill:  var(--text-color); stroke-width: 4px;stroke: var(--text-color);
     }
   
-  .select-box .options-container.active { top: -60px;
+  .select-box .options-container.active { top: -59px;
     max-height: 300px;
     opacity: 1;z-index: 100;
     /*overflow-y: scroll;*/
@@ -1357,7 +1383,7 @@ box-shadow: var(--box-shadow1) ;
   }
 
   .select-box .option:hover {
-    background: var(--bg-color);border: 1px solid var(--border-color);
+    background: var(--bg-color);/*border: 1px solid var(--border-color);*/
     transition: .4s ease all;
   }
   
@@ -1385,7 +1411,7 @@ box-shadow: var(--box-shadow1) ;
     color:  var(--text-color);
     font-size: var(--font-size1);font-family: var(--font-family1);font-weight: var(--font-weight1);
     border: none;
-    border-bottom: 1px solid var(--border-color);
+    /*border-bottom: 1px solid var(--border-color);*/
 
   }
   @media screen and  (max-width: 460px) {
@@ -1406,7 +1432,7 @@ box-shadow: var(--box-shadow1) ;
   font-size: var(--font-size1);font-family: var(--font-family1);font-weight: var(--font-weight1);
   text-transform:uppercase;
 }
-.option0:hover{background: var(--bg-color);border: 1px solid var(--border-color);
+.option0:hover{background: var(--bg-card-color);/*border: 1px solid var(--border-color);*/
   cursor: pointer; transition: .4s ease all;}
 
 .coincidirTex , .coincidirTex0{color: #bf5115;opacity: 1;}
@@ -1426,27 +1452,37 @@ box-shadow: var(--box-shadow1) ;
             </div>
            <div class="title"><p>C&Aacute;LCULOS FINANCIEROS</p></div>
         </div>
-        <div id="toggle-colors" class="colors">
-          <div data-bg="rgb(0, 0, 30)"      data-card="rgb(0, 0, 0)"       data-text="rgb(180, 180, 180)" data-border="rgb(120, 120, 120)" data-menu="rgb(0, 4, 21)" class="colors__item colors__item--blue" ></div>
-          <div data-bg="rgb(14, 35, 57)"    data-card="rgb(16, 26, 41)"    data-text="rgb(180, 180, 180)" data-border="rgb(120, 120, 120)" data-menu="rgb(0, 23, 56)" class="colors__item colors__item--b" ></div>
-          <div data-bg="rgb(27, 27, 28)"    data-card="rgb(20, 20, 20 )"    data-text="rgb(180, 180, 180)" data-border="rgb(120, 120, 120)" data-menu="rgb(41, 42, 44)" class="colors__item colors__item--green" ></div>
-          <div data-bg="rgb(90, 104, 128)"   data-card="rgb(74, 89, 113)"  data-text="rgb(30, 30, 30)"    data-border="rgb(50, 50, 50)"    data-menu="rgb(78, 96, 124)" class="colors__item colors__item--purple"></div>
-          <div data-bg="rgb(200, 200, 200)" data-card="rgb(230, 230, 230)" data-text="rgb(67, 67, 67)"    data-border="rgb(50, 50, 50)"    data-menu="rgb(185, 200, 209)" class="colors__item colors__item--orange"></div>
-          
-          <div id="palette" >
-            <svg id="palette_svg" viewBox="20 20 475 475" >
-            <circle class="cls-1" cx="256" cy="169.651" r="137.651"/>
-            <circle class="cls-2" cx="342.349" cy="342.349" r="137.651"/>
-            <circle class="cls-3" cx="169.651" cy="342.349" r="137.651"/>
-            <path class="cls-4" d="M307.3,342.347a137.415,137.415,0,0,1-51.3,107.21A137.861,137.861,0,0,1,211.366,299.9a138.261,138.261,0,0,0,89.27,0A137.515,137.515,0,0,1,307.3,342.347Z"/>
-            <path class="cls-5" d="M386.982,212.1A138,138,0,0,1,300.636,299.9a137.963,137.963,0,0,0-44.63-64.768A137.852,137.852,0,0,1,386.982,212.1Z"/>
-            <path class="cls-6" d="M256.006,235.136a137.94,137.94,0,0,0-44.64,64.768A138,138,0,0,1,125.02,212.1a137.871,137.871,0,0,1,130.986,23.04Z"/>
-            <path class="cls-7" d="M300.636,299.9a138.261,138.261,0,0,1-89.27,0,137.94,137.94,0,0,1,44.64-64.768A137.963,137.963,0,0,1,300.636,299.9Z"/>
-            </svg>
-            <input id="color" type="color" value="#440000" onclick=""> 
-          </div>
-        </div> 
+        <div class="title0"><p>C&Aacute;LCULOS FINANCIEROS</p></div>
+        <div class="svgSettings">
+          <svg fill="" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30.015 12.97l-2.567-0.569c-0.2-0.64-0.462-1.252-0.762-1.841l1.389-2.313c0.518-0.829 0.78-2.047 0-2.829l-1.415-1.414c-0.78-0.781-2.098-0.64-2.894-0.088l-2.251 1.434c-0.584-0.303-1.195-0.563-1.829-0.768l-0.576-2.598c-0.172-0.953-1.005-1.984-2.11-1.984h-2c-1.104 0-1.781 1.047-2 2l-0.642 2.567c-0.678 0.216-1.328 0.492-1.948 0.819l-2.308-1.47c-0.795-0.552-2.114-0.692-2.894 0.088l-1.415 1.414c-0.781 0.782-0.519 2 0 2.828l1.461 2.435c-0.274 0.552-0.517 1.123-0.705 1.72l-2.566 0.569c-0.953 0.171-1.984 1.005-1.984 2.109v2c0 1.105 1.047 1.782 2 2l2.598 0.649c0.179 0.551 0.404 1.080 0.658 1.593l-1.462 2.438c-0.518 0.828-0.78 2.047 0 2.828l1.415 1.414c0.78 0.782 2.098 0.64 2.894 0.089l2.313-1.474c0.623 0.329 1.277 0.608 1.96 0.823l0.64 2.559c0.219 0.953 0.896 2 2 2h2c1.105 0 1.938-1.032 2.11-1.985l0.577-2.604c0.628-0.203 1.23-0.459 1.808-0.758l2.256 1.438c0.796 0.552 2.114 0.692 2.895-0.089l1.415-1.414c0.78-0.782 0.518-2 0-2.828l-1.39-2.317c0.279-0.549 0.521-1.12 0.716-1.714l2.599-0.649c0.953-0.219 2-0.895 2-2v-2c0-1.104-1.031-1.938-1.985-2.11zM30.001 16.939c-0.085 0.061-0.245 0.145-0.448 0.192l-3.708 0.926-0.344 1.051c-0.155 0.474-0.356 0.954-0.597 1.428l-0.502 0.986 1.959 3.267c0.125 0.2 0.183 0.379 0.201 0.485l-1.316 1.314c-0.127-0.040-0.271-0.092-0.341-0.14l-3.292-2.099-1.023 0.529c-0.493 0.256-0.999 0.468-1.503 0.631l-1.090 0.352-0.824 3.723c-0.038 0.199-0.145 0.36-0.218 0.417h-1.8c-0.061-0.085-0.145-0.245-0.191-0.448l-0.921-3.681-1.066-0.338c-0.549-0.173-1.097-0.404-1.63-0.684l-1.028-0.543-3.293 2.099c-0.135 0.091-0.279 0.143-0.409 0.143l-1.311-1.276c0.018-0.104 0.072-0.274 0.181-0.449l2.045-3.408-0.487-0.98c-0.227-0.462-0.407-0.895-0.547-1.325l-0.343-1.052-3.671-0.918c-0.231-0.052-0.398-0.139-0.485-0.2v-1.86c0.001 0.001 0.002 0.001 0.005 0.001 0.034 0 0.198-0.117 0.335-0.142l3.772-0.835 0.346-1.103c0.141-0.449 0.333-0.917 0.588-1.43l0.487-0.98-2.024-3.373c-0.125-0.201-0.184-0.38-0.201-0.485l1.315-1.314c0.128 0.041 0.271 0.093 0.34 0.14l3.354 2.138 1.027-0.542c0.527-0.278 1.073-0.507 1.622-0.682l1.063-0.338 0.912-3.649c0.053-0.231 0.138-0.398 0.2-0.485h1.859c-0.014 0.020 0.115 0.195 0.142 0.339l0.84 3.794 1.089 0.352c0.511 0.165 1.023 0.38 1.523 0.639l1.023 0.532 3.224-2.053c0.135-0.092 0.279-0.143 0.409-0.143l1.313 1.276c-0.017 0.104-0.072 0.276-0.181 0.45l-1.98 3.296 0.505 0.988c0.273 0.533 0.48 1.033 0.635 1.529l0.346 1.104 3.697 0.82c0.224 0.041 0.398 0.171 0.434 0.241zM16.013 9.99c-3.321 0-6.023 2.697-6.023 6.010s2.702 6.010 6.023 6.010 6.023-2.697 6.023-6.009c0-3.313-2.702-6.010-6.023-6.010zM16 20c-2.205 0-4-1.794-4-4s1.794-4 4-4c2.206 0 4 1.794 4 4s-1.794 4-4 4z"></path>
+        </svg>
+        </div>
       </header>
+      <div class="toggleColors">
+      <div class="toggleColors1"> 
+      <div id="toggle-colors" class="colors">
+        <div data-bg="rgb(0, 0, 30)"      data-card="rgb(0, 0, 0)"       data-text="rgb(180, 180, 180)" data-border="rgb(120, 120, 120)" data-menu="rgb(0, 4, 21)" class="colors__item colors__item--blue" ></div>
+        <div data-bg="rgb(14, 35, 57)"    data-card="rgb(16, 26, 41)"    data-text="rgb(180, 180, 180)" data-border="rgb(120, 120, 120)" data-menu="rgb(0, 23, 56)" class="colors__item colors__item--b" ></div>
+        <div data-bg="rgb(27, 27, 28)"    data-card="rgb(20, 20, 20 )"    data-text="rgb(180, 180, 180)" data-border="rgb(120, 120, 120)" data-menu="rgb(41, 42, 44)" class="colors__item colors__item--green" ></div>
+        <div data-bg="rgb(90, 104, 128)"   data-card="rgb(74, 89, 113)"  data-text="rgb(30, 30, 30)"    data-border="rgb(50, 50, 50)"    data-menu="rgb(78, 96, 124)" class="colors__item colors__item--purple"></div>
+        <div data-bg="rgb(200, 200, 200)" data-card="rgb(230, 230, 230)" data-text="rgb(67, 67, 67)"    data-border="rgb(50, 50, 50)"    data-menu="rgb(185, 200, 209)" class="colors__item colors__item--orange"></div>
+        
+        <div id="palette" >
+          <svg id="palette_svg" viewBox="20 20 475 475" >
+          <circle class="cls-1" cx="256" cy="169.651" r="137.651"/>
+          <circle class="cls-2" cx="342.349" cy="342.349" r="137.651"/>
+          <circle class="cls-3" cx="169.651" cy="342.349" r="137.651"/>
+          <path class="cls-4" d="M307.3,342.347a137.415,137.415,0,0,1-51.3,107.21A137.861,137.861,0,0,1,211.366,299.9a138.261,138.261,0,0,0,89.27,0A137.515,137.515,0,0,1,307.3,342.347Z"/>
+          <path class="cls-5" d="M386.982,212.1A138,138,0,0,1,300.636,299.9a137.963,137.963,0,0,0-44.63-64.768A137.852,137.852,0,0,1,386.982,212.1Z"/>
+          <path class="cls-6" d="M256.006,235.136a137.94,137.94,0,0,0-44.64,64.768A138,138,0,0,1,125.02,212.1a137.871,137.871,0,0,1,130.986,23.04Z"/>
+          <path class="cls-7" d="M300.636,299.9a138.261,138.261,0,0,1-89.27,0,137.94,137.94,0,0,1,44.64-64.768A137.963,137.963,0,0,1,300.636,299.9Z"/>
+          </svg>
+          <input id="color" type="color" value="#440000" onclick=""> 
+        </div>
+      </div>
+      </div> 
+      </div> 
       <nav class="navbar1" id="navbar1">
             <div class="card__options">
               <div class="card__option1"><p class="s2">C&Aacute;LCULOS FINANCIEROS</p>
@@ -1485,7 +1521,7 @@ box-shadow: var(--box-shadow1) ;
         </div>
       </div>
       <div class="header2">
-        <div class="title2"><p id="pTitle2" >C&Aacute;LCULOS FINANCIEROS</p></div>
+        <div class="title2"><p id="pTitle2" >C&Aacute;LCULOS FINANCIEROS |</p></div>
       </div> 
     
       <article class="main_flex">
@@ -1727,7 +1763,7 @@ box-shadow: var(--box-shadow1) ;
                        <div class="search-box" ><input type="text" id="buscar" placeholder="Buscar..." /></div>
                        <div>
                          <div class="BUSCADO" id="BUSCADO">
-                           <div id="buscado0">
+                           <div id="buscadoX">
                            <div id="coincidencias">0</div>
                            <div id="buscado"></div>
                           </div>
@@ -2525,6 +2561,8 @@ box-shadow: var(--box-shadow1) ;
         <br>
       </article>
       <br>
+      <!-- <input type="button" value="Buscar simbolos" id="buscarSimbolo" onclick="cargarSimbolos2()">  -->
+      <div id="simbolosOcultos" style="display: none;"></div>
       <footer class="footer">
           <div class="socialmedia_1">
           <div class="socialmedia">
@@ -3017,10 +3055,9 @@ var svgSOL,svgETH,svgDOGE,svgBNB,svgAVAX,svgBTC,svgXRP, svgNEAR,svgICP='',svgTAO
 let TEX= ['(Avalanche)','(BNB)','(Bitcoin)','(Dogecoin)','(Ethereum)','(Solana)','(XRP)','(NEAR Protocol)','(Internet Computer)','(Bittensor)','(Artificial Superintelligence Alliance)','(Render)','(The Graph)','(Celestia)','(Manta Network)','(Pyth Network)','(Pepe)','(Sui)']; 
 //ADEMAS AGREGARLA EN: function cardPrice24hr(){} , function data(){} , function inicializarCard(){} , function actualizaTablaDinamica(n,s){} , function imagenesSVG(){} Y EN: CF[2024]-2d.html ⭢ <div class="opciones0" id="opciones03">       
 //FIN DE: CUANDO SE AGREGA UNA NUEVA MONEDA, SE DEBEN DE AGREGAR AQUÍ 
-let simboloUpperCase='',simboloLowerCase='', ARRAYPARUSDT=[]; 
-let resultado00 ;
+let simboloUpperCase='',simboloLowerCase='',simboloUpperCase0='',simboloLowerCase0='' , resultado0 , v1='', v2='', v01='' , v02='',variableUpperCase='' , variableLowerCase='', SYMBOL='', precios='',A1=[],A2=[];
 
-function cargarSimbolos() {//CARGA DE SIMBOLOS AL ABRIR LA PAGINA 
+function cargarSimbolos() {// ⟵ CARGA DE SIMBOLOS SIN FILTRAR AL ABRIR LA PAGINA 
   fetch('https://api.binance.com/api/v3/ticker/price')
   .then( respuesta => respuesta.json() )
   .then( datos => mostrarData(datos))
@@ -3028,15 +3065,40 @@ function cargarSimbolos() {//CARGA DE SIMBOLOS AL ABRIR LA PAGINA
   const mostrarData = (data)=>{
    for (let k = 0; k < data.length; k++) { 
     let s=data[k].symbol.substring(data[k].symbol.length - 4);
-    if (s=='USDT') {//SOLAMENTE LLENARA EL ARRAY CON PAR 'USDT' (531 SIMBOLOS AL 2-DIC-24) 
-      ARRAYPARUSDT.push(data[k].symbol);
+    if (s=='USDT') {// ⟵ SOLAMENTE LLENARA EL ARRAY CON PAR 'USDT' (531 SIMBOLOS AL 2-DIC-24) 
+      A1.push(data[k].symbol);
     }
    }
-   //cargarSimbolo.innerText=ARRAYPARUSDT;    
-   //console.log('ARRAYPARUSDT---------',ARRAYPARUSDT);
-   resultado00 = ARRAYPARUSDT.map(function(elemento,index){return {name: elemento, index: index};});
-  } 
+   //resultado0 = A1.map(function(n,i){return {nombre: n, indice: i};});// ⟵ COVVERTIR ELEMENTOS DE UN ARRAY EN OBJETOS 
+  }
 }
+cargarSimbolos();//CARGA DE SIMBOLOS AL ABRIR LA PAGINA 
+ 
+function cargarSimbolos2() {//⟵ CARGA DE SIMBOLOS FILTRADOS(ELIMINA SIMBOLOS OBSOLETOS Q' NO TIENEN DATA)
+ let n1='', n2='',nn=0, l=(A1.length-1)-nn ;
+ for (let i = 0; i < l; i++) {
+     n1+=`A1[`+i+`]+`+`'","'`+`+`;// A1[0]+'","'+
+     n2='A1['+(l)+']';
+ }
+ let x=eval(n1+n2);
+ let y='["'+x+'"]';
+ let z=eval(`y`);
+
+ fetch('https://api.binance.com/api/v3/ticker/24hr?symbols='+z/* , {mode: 'no-cors'}*/) 
+ .then( respuesta => respuesta.json() )
+ .then( datos => mostrarData2(datos))
+ .catch( e => console.log(e))
+ const mostrarData2 = (data)=>{
+  for (let i = 0; i < data.length; i++) { 
+     if (data[i].highPrice!=0 && data[i].lowPrice!=0 && data[i].priceChange!=0 && data[i].priceChangePercent!=0 && data[i].volume!=0 && data[i].quoteVolume!=0) {
+         A2.push(data[i].symbol);//A2.push(data[i].symbol+'  '+data[i].highPrice);
+     }
+  }
+  //let d1=div1.innerHTML='Coincidencias: '+c2+'<br>';
+  simbolosOcultos.innerHTML=A2;  //console.log('data A2 .............. ',A2) ;
+  resultado0 = A2.map(function(n,i){return {nombre: n, indice: i};});// ⟵ COVVERTIR ELEMENTOS DE UN ARRAY EN OBJETOS 
+ } 
+} 
 
 function formato(input) { // OJO::::: RECTIFICAR PARA: 18888888888888888 INTRODUCIDO EN id="precioCompra", DA COMO RESULTADO: 18,888,888,888,888,890.00  // 1999999999999999999 ➡ 2,000,000,000,000,000,000.00  // 19999999999999999 ➡ 20,000,000,000,000,000.00
   var cadena= new String(input); var x = cadena.split("."); //var x = cadena.replace(/,/g,"").split(".");
@@ -3352,6 +3414,8 @@ function c(pVenta,pCompra,comision,cuentaInicial) {
 } 
 
 function inicializarCard() {//CAMBIO DE PRECIO CADA 1 SEGUNDO //Cotización de Bitcoin en tiempo real Binance: (1): https://www.youtube.com/watch?v=IAOHydmDrmQ  (2): https://github.com/infodp/crypto_cotizacion_vanilla_js  
+  if (simbolosOcultos.textContent=='') {cargarSimbolos2()} ///CARGA DE SIMBOLOS HABILES EN: A2=[...] 
+  
   let pVenta='', PRECIO='', d=''; 
   fetch('https://api.binance.com/api/v3/ticker/price')
   .then( respuesta => respuesta.json() )
@@ -3502,22 +3566,29 @@ function ganancia(diferencia,pCompra,comision,cuentaI) {//.....FUNCION SIN USO
 let A=[], simbolos='';
 function agregarAtabla0(){ 
   A=[];simbolos='';
-  let cuentaI= (cleanBox(cuentaSpotI.value)), pCompra= (cleanBox(precioCompra.value)),comision= (cleanBox(commission.value)), pVenta='', s=document.getElementById('simbolo'), ss='', v1='', v2='', d, t='', E='', C=0, e='', S=simbolo.textContent;
+  let cuentaI= (cleanBox(cuentaSpotI.value)), pCompra= (cleanBox(precioCompra.value)),comision= (cleanBox(commission.value)), pVenta='', s=document.getElementById('simbolo'), ss='', d, t='', E='', C=0, e='', S=simbolo.textContent;
   (EDITAR==1)? pVenta= (cleanBox(precioVenta.value)) : pVenta= (cleanBox(precioVenta.value));
   c(pVenta,pCompra,comision,cuentaI); //console.log( );  `   `
   (TABLADINAMICA==1)? (e='', contD=contD+1 ,C=contD, contTD=contTD+1):(e='E', contE=contE+1 ,C=contE, contTE=contTE+1);
-  ss=s.textContent.toLowerCase(); v1=s.textContent.replace('USDT','') ;v2=s.textContent.replace('USDT','').toLowerCase();
-
+  ss=s.textContent.toLowerCase(); v1=s.textContent.replace('USDT','')+"" ;v2=s.textContent.replace('USDT','').toLowerCase()+"";
+  v01=" let "+v1+"='0.383'; ";    v02=" let "+v2+"='0'; ";
   if (ARRAY.includes(s.textContent)==false){ // ⭠ SI NO ENCUENTRA SIMBOLO
     ARRAY.push(s.textContent); // ⭠ OJO::: EN ESTE PUNTO SE AGREGA NUEVO SIMBOLO AL 'ARRAY'. 
     simboloUpperCase+=","+v1; simboloLowerCase+=","+v2;
+    simboloUpperCase0+=""+v1; simboloLowerCase0+=""+v2;
+    variableUpperCase+=v01; variableLowerCase+=v02;
+    SYMBOL+=","+"'"+s.textContent+"'";
+
+    //console.log('ARRAY........',ARRAY);
+    //console.log('simboloUpperCase........',simboloUpperCase);
   } 
   for (let j = 0; j < document.getElementsByName('DS').length; j++) {// ⭠ IMPRIME SIMBOLOS EN A[] 
     A.push(document.getElementsByName('DS')[j].textContent); //console.log('A===========', A);
   }
   E = A.includes(s.textContent);
   if (E==true) {t='';}// ⭠ SI SE DETECTA SIMBOLO REPETIDO, SE IMPRIME t='' EN input 
-  else {t="let ws"+C+"=new WebSocket('wss://stream.binance.com:9443/ws/"+ss+"@trade'); ws"+C+".onmessage=(event)=>{let data"+C+"=JSON.parse(event.data); "+v1+"=data"+C+".p; "+v2+"=data"+C+".p};";};
+  else {t=/*simboloUpperCase0+"; "+ simboloLowerCase0+";"+*/" let ws"+C+"=new WebSocket('wss://stream.binance.com:9443/ws/"+ss+"@trade'); ws"+C+".onmessage=(event)=>{let data"+C+"=JSON.parse(event.data); "+v1+"=data"+C+".p; "+v2+"=data"+C+".p ;};";};// console.log(v1,v2 ... "+v1+ ","+v2+ ") 
+  //else {t="let "+v1+"='0.383';" + " let "+v2+"='0';" + " let ws"+C+"=new WebSocket('wss://stream.binance.com:9443/ws/"+ss+"@trade'); ws"+C+".onmessage=(event)=>{let data"+C+"=JSON.parse(event.data); "+v1+"=data"+C+".p; "+v2+"=data"+C+".p};";};
   d=pVenta.split('.')[1].length; //d=LONGITUD DE PARTE DECIMAL 
   let TR= `<tr       id='tr_`  +e+C+`'`+` name='TR' class='TR'>`+
   `<td class='td_cf' id='td_sp`+e+C+`'><div class='ds'><input type='text' class='de' id='dataeval`+e+C+`' value="`+t+`"><div class='d_s' name='DS' id='p_s`+e+C+`'>`+S+`</div><div name='logo`+e+`' id='logo`+e+C+`'>`+logo+`</div></div></td>`+
@@ -3569,6 +3640,7 @@ function EVAL() {
     simbolos+=document.getElementsByClassName('de')[k].value; //console.log('simbolos===========', simbolos);
   }
   eval(simbolos);//LINK='00';link='000'; //eval("console.log('LINK........',LINK,link)")
+  ///sconsole.log('OMG........',OMG,omg);
 }
 EVAL();
 
@@ -3599,18 +3671,29 @@ function actualizaPreciosCard() {//ACTUALIZA LOS FORMATOS DE LAS CASILLAS.
   actualizaDiferenciaPrecio(); 
 } 
 
+//let OMG='9.55',omg='0';
+//let ws1x= new WebSocket('wss://stream.binance.com:9443/ws/omgusdt@trade')  ; ws1x.onmessage= (event)=>{let data1x= JSON.parse(event.data); OMG=  data1x.p ; omg  =data1x.p ;}
+
 function actualizaTablaDinamica(n,s){ 
   let l=[];
   for (let j = 1; j <= n; j++) { // RECORRE 'n' FILAS DE TABLA: 
     let S=document.getElementById('p_s'+s+j), L=document.getElementById('logo'+s+j),  CI=document.getElementById("p_ci"+s+j), PV=document.getElementById('p_pv'+s+j), PC=document.getElementById('p_pc'+s+j), D=document.getElementById('p_dp'+s+j), C=document.getElementById("p_c"+s+j), G=document.getElementById('p_p'+s+j), CF=document.getElementById('p_cf'+s+j) 
     , cuentaI= (cleanBox(document.getElementById("p_ci"+s+j).textContent)), compra= (cleanBox(document.getElementById("p_pc"+s+j).textContent)), comision= (cleanBox(document.getElementById("p_c"+s+j).textContent)) , d='';
-
-    let precios=eval("[AVAX,BNB,BTC,DOGE,ETH,SOL,XRP,NEAR,ICP,TAO,FET,RENDER,GRT,TIA,MANTA,PYTH,PEPE"+simboloUpperCase+"]"); 
+    //let ARRAY2 =eval(`["AVAXUSDT","BNBUSDT","BTCUSDT","DOGEUSDT","ETHUSDT","SOLUSDT","XRPUSDT","NEARUSDT","ICPUSDT","TAOUSDT","FETUSDT","RENDERUSDT","GRTUSDT","TIAUSDT","MANTAUSDT","PYTHUSDT","PEPEUSDT" `+SYMBOL+` ]`); 
+    
+    //console.log('variableUpperCase ========',variableUpperCase);
+    //let precios=eval(variableUpperCase+ "[AVAX,BNB,BTC,DOGE,ETH,SOL,XRP,NEAR,ICP,TAO,FET,RENDER,GRT,TIA,MANTA,PYTH,PEPE"+simboloUpperCase+"]"); 
+    precios=eval("[AVAX,BNB,BTC,DOGE,ETH,SOL,XRP,NEAR,ICP,TAO,FET,RENDER,GRT,TIA,MANTA,PYTH,PEPE"+simboloUpperCase+"]"); 
+    //console.log('precios........',precios);
+    //console.log('TRX=============',TRX);
+    
     l.push(L.style.display); 
     (tdPMax24h_a.textContent=='')? document.getElementById('logo'+j).innerHTML='' : document.getElementById('logo'+j).innerHTML=logo;
 
     for (let i = 0; i < ARRAY.length; i++) { 
+      //let P0=eval(variableLowerCase +"[avax,bnb ,btc,doge ,eth ,sol,xrp ,near,ipc ,tao ,fet ,render,grt ,tia ,manta ,pyth,pepe"+simboloLowerCase+"]");
       let P0=eval("[avax,bnb ,btc,doge ,eth ,sol,xrp ,near,ipc ,tao ,fet ,render,grt ,tia ,manta ,pyth,pepe"+simboloLowerCase+"]");
+      //console.log('P0........',P0); console.log('TRX,trx,(simboloLowerCase)........',simboloLowerCase);
       d=precios[i].split('.')[1].length; //d=LONGITUD DE PARTE DECIMAL
       if (S.textContent==ARRAY[i]) {
         (P0[i] != '0')? (PV.innerText=F(precios[i] ,d)):(PV.innerText=F(cleanBox(PV.textContent) ,d));
@@ -3629,6 +3712,7 @@ function actualizaTablaDinamica(n,s){
       if (S.textContent==ARRAY[i] && cuentaI!='0'){// ⭠ OJO: cuentaI!='0' ES SOLO PARA NO APLICAR opacidad(...) CUANDO SE HACE CLIC EN eliminarTr(...) ANTES DE Q' CARGE SU ENLACE ws. ENTONCES capitalFinalTotal.style.opacity='1'... 
         /*PC.innerText= F(compra, d0);*/ D.innerText= F(diferencia, d0); G.innerText = F(ganancia, d0)+' ('+F(gananciaPorciento, 2)+'%)'; CF.innerText=F(cuentaF, d0);// ⭠ NUMERO DE DECIMALES PARA CADA MONEDA
         let P=eval("[avax,bnb ,btc,doge ,eth ,sol,xrp ,near,ipc ,tao ,fet ,render,grt ,tia ,manta ,pyth,pepe"+simboloLowerCase+"]");
+        
         opacidad(P[i],a,S,L,CI,PC,PV,D,C,G,CF,l);// ⭠ Opacidad en: S,CI,PC,PV,D,C,G,CF + Actualizar Color en: D,G,CF // 0000 4
       }
     } 
@@ -3680,7 +3764,6 @@ function actualizaColorTr() {
 function nivelarColumnas() {flex_2.style.height= columnCenter.offsetHeight+"px";; columnLeft.style.height= columnCenter.offsetHeight+"px";;}//offsetHeight CALCULA LA ALTURA DE columnCenter_articles
 
 function onload() { 
-  cargarSimbolos();//CARGA DE SIMBOLOS AL ABRIR LA PAGINA 
   resetar();nivelarColumnas();
   inicializarCard();
   startTimer();
@@ -3699,6 +3782,9 @@ function navToggle(){//ESTA FUNCION TRABAJA JUNTO A resetarMascara()
     else {document.getElementById("navbar1").style.left= -100+"%";TOGGLE=1; document.getElementById("body").style.overflow= "auto";document.getElementById('mascara').style.backgroundColor='rgba(10,10,10, 0.0)';  document.getElementById("mascara").style.zIndex='0'}// document.getElementById("body").style.overflow= "auto";
   }
 }
+document.querySelector('.svgSettings').addEventListener("click", () => { 
+  document.querySelector('.toggleColors').classList.toggle("active");
+})
 //RESETAR MASCARA: =============================================================================================
 function resetarMascara() {window.addEventListener('resize', function(){if (window.innerWidth>900) {{document.getElementById("navbar1").style.left= -100+"%"; document.getElementById("body").style.overflow= "auto";   TOGGLE=1; document.getElementById('mascara').style.backgroundColor='rgba(0,0,0, 0.0)';document.getElementById("mascara").style.zIndex='0'; console.log('window.innerWidth ::: ',window.innerWidth);} }});} 
 resetarMascara();
@@ -3778,10 +3864,18 @@ function eliminarTablaE(){
 
 function eliminarTr(c){
   contTD=contTD-1; console.log("contTD:", contTD);
-  document.getElementById('dataeval'+c).remove(); document.getElementById('logo'+c).style.display='none'; document.getElementById('tr_' +c).style.display='none';  //document.getElementById('tr_'+c).remove();
+  document.getElementById('dataeval'+c).remove(); 
+  
+  //document.getElementById('logo'+c).style.display='none'; document.getElementById('tr_' +c).style.display='none';  //document.getElementById('tr_'+c).remove();
+  
   document.getElementById("p_ci"+c).innerText=0;
   document.getElementById("p_pc"+c).innerText=0.01;//EVITA 'Infinity'
   document.getElementById("p_pv"+c).innerText=0; document.getElementById("p_dp"+c).innerText=0; document.getElementById("p_c" +c).innerText=0; document.getElementById("p_p" +c).innerText=0; document.getElementById("p_cf"+c).innerText=0;
+  
+  //let S=document.getElementById('p_s'+c).textContent.replace('USDT','');
+  //const resultado = precios.filter(simbolo => simbolo != S);
+  //simboloUpperCase=""; simboloLowerCase="";
+  
   suma(contD,'');//console.log(); 
   if (contTD==0) {document.getElementById('tabla_1a').style.display='none';document.querySelector('.marcoTabla1').style.display='none';}
   anchoDivsCeldas1();
@@ -3930,26 +4024,6 @@ boxes[i].addEventListener("input", (e) => {
 
 }//FIN DE for (let i = 5; i < boxes.length - 2; i++) 
 
-//CASILLA id="buscar" :
-/*
-document.getElementById('buscar').addEventListener("input", (e) => {
-  let cadena=buscar.value.toUpperCase().replace(/ /g, '');
-  //let x=','+'"'+cadena+'"';
-  //let s ='["AVAXUSDT"'+x+']';console.log('s ::::::: ',s);
-  let x='"'+cadena+'"';
-  let s ='['+x+']';console.log('s ::::::: ',s);
-  
-  fetch('https://api.binance.com/api/v3/ticker/24hr?symbols='+s) 
-  .then( respuesta => respuesta.json() )
-  .then( datos => mostrarData(datos))
-  .catch( e => buscado.textContent='-------------')
-  const mostrarData = (data)=>{
-   for (let k = 0; k < data.length; k++) { 
-     if (cadena==data[k].symbol) {buscado.textContent=cadena;console.log('buscado.textContent ::::::: ',buscado.textContent);}
-    }
-  } 
-}); 
-*/
 ///------------------------------------------------------------------------------------------------------------------------
 
  ///%%%%%%%%%%%%  LISTA DE OPCIONES 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4873,43 +4947,7 @@ svgTIA=
  imagenesSVG();
  ////console.log('FIN');
 
- // https://github.com/karthik947/CoinMarketCap-API/blob/master/index.html#L2C2-L13C1     ,    https://www.youtube.com/watch?v=7Gdok1BPECw&t=250s 
- /*
- var apikey = {
-  key:'cf14cf58-626e-49d9-aea8-a64c15e91dd2'
-}
-  
-request('GET','https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=' + apikey.key)
-.then((r1) => {
-  var x1 = JSON.parse(r1.target.responseText);
-  console.log(x1.data.quote.USD.total_market_cap);
-}).catch(err => {
-  console.log(err);
-})  
-  
-function request(method, url) {
-      return new Promise(function (resolve, reject) {
-          var xhr = new XMLHttpRequest();
-          xhr.open(method, url);
-          xhr.onload = resolve;
-          xhr.onerror = reject;
-          xhr.send();
-      });
-}
-
-fetch('https://api.binance.com/api/v3/ticker/price')
-  .then( respuesta => respuesta.json() )
-  .then( datos => mostrarData(datos))
-  .catch( e => console.log(e))
-  
-  let mostrarData = (data)=>{//BTCUSDT:i=11 ETHUSDT 12, BNBUSDT 98, SOLUSDT 779, XRPUSDT,  296, AVAXUSDT 1052, DOGEUSDT 558, 
-    for (let i=0; i < data.length; i++) {
-     console.log(data[i].symbol)
-    }
-  } 
-*/
-
-/*Custom-Select-Box-with-Search-master(1)--------------------------- EN REEMPLAZO DE 'LISTA DE OPCIONES 3' */ 
+/*Custom-Select-Box-with-Search-master(1)---------------- EN REEMPLAZO DE 'LISTA DE OPCIONES 3' */ 
 let selected = document.querySelector(".selected"),
 SIMBOLO = document.getElementById("SIMBOLO"),
 optionsContainer = document.querySelector(".options-container"),
@@ -4921,7 +4959,7 @@ SIMBOLO.addEventListener("click", () => {
   optionsContainer.classList.toggle("active");
   opcionesXX.classList.toggle("active");
   searchBox.value = "";
-  opcionesXX.style.display='flex';buscado0.style.display='none';
+  opcionesXX.style.display='flex';buscadoX.style.display='none';
   if (optionsContainer.classList.contains("active")) {searchBox.focus();}
 });
 for (let i = 0; i < optionsList.length; i++) {//OJO: CAMBIAR forEach POR for , EN EXPLORADOR EDGE ANTIGUOS NO FUNCIONA 
@@ -4941,53 +4979,50 @@ let index0='';
 let formulario = document.querySelector('#formulario');
 let resultado = document.querySelector('#resultado');
  
-const filtrar0 = ()=>{
-  if (formulario.value == '') {
+const filtrar0 = ()=>{// ⭠ USANDO filter (*REEMPLAZAR POR 'indexOf' PARA NO USAR 'resultado0')
+  if (formulario.value == '') resultado.innerHTML = '';
+  else{
     resultado.innerHTML = '';
-  }else{
-    resultado.innerHTML = '';
-    let texto0=formulario.value.toLowerCase();
-    let filteredCountries = resultado00.filter((country) => country.name.toLowerCase().includes(texto0));//USAR: startsWith() PARA coincir primeras letras , endsWith() PARA coincir ultimas letras , y includes() determina si una cadena de texto puede ser encontrada dentro de otra cadena de texto
+    let texto0=formulario.value.toLowerCase();  //console.log('resultado0......',resultado0);
+    let filteredCountries = resultado0.filter((monedas) => monedas.nombre.toLowerCase().includes(texto0));//USAR: startsWith() PARA coincir primeras letras , endsWith() PARA coincir ultimas letras , y includes() determina si una cadena de texto puede ser encontrada dentro de otra cadena de texto
     coincidencias0.innerHTML='Coincidencias: ' + filteredCountries.length;
-    filteredCountries.forEach((country) => {//USAR createElement PARA UNA MAYOR RAPIDEZ 
-      let r=country.name.toLowerCase().replace(texto0, `<span class='coincidirTex'>${texto0}</span>`);//console.log('r...',r);
+    filteredCountries.forEach((monedas) => {// ⭠ USAR createElement PARA UNA MAYOR RAPIDEZ 
+      let r=monedas.nombre.toLowerCase().replace(texto0, `<span class='coincidirTex'>${texto0}</span>`);//console.log('r...',r);
       let div = document.createElement("div");
-      div.setAttribute('name','option0');div.setAttribute('class','option0');div.setAttribute('onclick',`insertar0(${country.index})`);
+      div.setAttribute('name','option0');div.setAttribute('class','option0');div.setAttribute('onclick',`insertar0(${monedas.indice})`);
       div.innerHTML = r;
       resultado.appendChild(div);
     });
   }
 }
-function insertar0(index) {
-  simbolo.innerHTML=ARRAYPARUSDT[index]; console.log('ARRAYPARUSDT[index].textContent......',ARRAYPARUSDT[index]);
- }
+function insertar0(I) {simbolo.innerHTML=A2[I];}
 formulario.addEventListener('input', filtrar0);
 
 let index='';
-const filtrar = ()=>{
+const filtrar = ()=>{// ⭠ USANDO indexOf 
   if (searchBox.value == '') {
     buscado.innerHTML = '';opcionesXX.style.display='block';coincidencias.innerText='';
   }else{
     buscado.innerHTML = '';
-    const texto =searchBox.value.toLowerCase();//* toUpperCase
-    for(let i = 0; i < ARRAYPARUSDT.length; i++){
-     let nombre = ARRAYPARUSDT[i].toLowerCase();
-     if(nombre.indexOf(texto) !== -1){
+    let texto =searchBox.value.toLowerCase();//* toUpperCase
+    for(let i = 0; i < A2.length; i++){
+     let nombre = A2[i].toLowerCase();
+     if(nombre.indexOf(texto) !== -1){// ⭠ SI ENCUENTRA COINCIDENCIAS 
       index=i; //console.log('index......',index);
-      let r=ARRAYPARUSDT[index].toLowerCase().replace(texto, `<span class='coincidirTex'>${texto}</span>`);//console.log('r...',r);
-      let div = document.createElement("div");//USAR createElement PARA UNA MAYOR RAPIDEZ 
+      let r=A2[index].toLowerCase().replace(texto, `<span class='coincidirTex'>${texto}</span>`);//console.log('r...',r);
+      let div = document.createElement("div");// ⭠ USAR createElement PARA UNA MAYOR RAPIDEZ 
       div.setAttribute('name','option0');div.setAttribute('class','option0');div.setAttribute('onclick',`insertar(${index})`);
       div.innerHTML = r;
-      buscado.appendChild(div);
-      coincidencias.innerText='Total encontrado: '+ buscado.children.length; //console.log('buscado.children.length......',buscado.children.length);
-      opcionesXX.style.display='none';buscado0.style.display='block';
+      buscado.appendChild(div); //coincidencias.innerText='Total encontrado: '+ buscado.children.length; console.log('buscado.children.length......',buscado.children.length);
+      opcionesXX.style.display='none';buscadoX.style.display='block';
      }
+     (buscado.textContent=='')? coincidencias.innerText='' : coincidencias.innerText='Total encontrado: '+ buscado.children.length; 
     }
   }
 } 
-function insertar(index) {
-  simbolo.innerHTML=ARRAYPARUSDT[index]; //console.log('ARRAYPARUSDT[index].textContent......',ARRAYPARUSDT[index]);
-  optionsContainer.classList.toggle("active");buscado0.style.display='none';opcionesXX.style.display='block';
+function insertar(I) {
+  simbolo.innerHTML=A2[I]; //console.log('A2[index].textContent......',A2[index]);
+  optionsContainer.classList.toggle("active");buscadoX.style.display='none';opcionesXX.style.display='block';
 }
 searchBox.addEventListener('input', filtrar);
 
